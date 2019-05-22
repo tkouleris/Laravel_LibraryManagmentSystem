@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@include('forms.author')
+
 @section('content')
 
 <div class="container">
@@ -35,6 +37,11 @@
                 @foreach( $authors as $author )
                     <button type="button" class="list-group-item list-group-item-action">{{ $author->lastname.' '.$author->firstname }}</button>
                 @endforeach
+                <div class="btn-group" role="group" aria-label="Basic example" style="padding-top:5px;">
+                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#author_form">Add </button>
+                    <button type="button" class="btn btn-secondary">Edit</button>
+                    <button type="button" class="btn btn-danger">Delete</button>
+                </div>
             </div>
         </div>
 
@@ -43,3 +50,4 @@
 </div>
 
 @endsection
+

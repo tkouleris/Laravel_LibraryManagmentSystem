@@ -24,6 +24,7 @@
     <link href="{{ asset('css/dashboard.min.css') }}" rel="stylesheet">
 
 
+
 </head>
 <body>
     <div id="app">
