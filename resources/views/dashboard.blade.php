@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@include('forms.author')
+
 
 @section('content')
 
@@ -48,6 +48,6 @@
     </div>
 
 </div>
-
+@include('forms.author')
 @endsection
 
