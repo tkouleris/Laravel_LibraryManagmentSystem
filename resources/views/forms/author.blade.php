@@ -88,9 +88,18 @@ jQuery(document).ready(function(){
                   	{
                   		jQuery('.alert-danger').hide();
                   		$('#author_form').modal('hide');
-                      location.reload();
+                      //location.reload();
                   	}
-                  }});
+                  },
+                  error: function (data) {
+                      var response = $.parseJSON(data.responseText);
+                  		jQuery('.alert-danger').html('');
+                  		jQuery.each(response.errors, function(key, value){
+                  			jQuery('.alert-danger').show();
+                  			jQuery('.alert-danger').append('<li>'+value+'</li>');
+                  		});
+                  }
+                  });
                });
             });
 

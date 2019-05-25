@@ -3,24 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\AuthorInsertRequest;
 
 use App\Author;
 
 class AuthorController extends Controller
 {
 
-    public function insert_new_author(Request $request)
+    public function insert_new_author(AuthorInsertRequest $request)
     {
-        $validator = \Validator::make($request->all(), [
-            'firstname'=> 'required|max:50',
-            'lastname' => 'required|max:50',
-        ]);
-
-        if ($validator->fails())
-        {
-            return response()->json(['errors'=>$validator->errors()->all()]);
-        }
-
         $firstname = $request['firstname'];
         $lastname = $request['lastname'];
         $dob = $request['dob'];
