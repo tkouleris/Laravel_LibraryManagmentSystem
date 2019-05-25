@@ -23,6 +23,9 @@ Auth::routes();
 
 Route::get('/dashboard', 'DashboardController@getDashboardData')->name('dashboard');
 Route::get('/books', 'BooksController@getBooks');
-Route::post('/newauthor',['uses'=>'AuthorController@insert_new_author','as'=>'newauthor'
-]);
+Route::post('/newauthor',
+    [
+        'uses'=>'AuthorController@insert_new_author','as'=>'newauthor'
+    ]
+);
 

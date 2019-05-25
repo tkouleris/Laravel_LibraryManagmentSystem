@@ -11,13 +11,15 @@ class AuthorController extends Controller
 
     public function insert_new_author(Request $request)
     {
-
-        $this->validate($request, [
+        $validator = \Validator::make($request->all(), [
             'firstname'=> 'required|max:50',
             'lastname' => 'required|max:50',
         ]);
 
-
+        if ($validator->fails())
+        {
+            return response()->json(['errors'=>$validator->errors()->all()]);
+        }
 
         $firstname = $request['firstname'];
         $lastname = $request['lastname'];

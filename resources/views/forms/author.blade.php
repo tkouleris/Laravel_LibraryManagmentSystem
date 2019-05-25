@@ -10,7 +10,8 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form action="{{ route('newauthor') }}" method="post">
+      <div class="alert alert-danger" style="display:none"></div>
+      <form action="" method="post">
        <div class="modal-body">
 
             <!-- First Name -->
@@ -45,7 +46,7 @@
 
         </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-primary" id="btn_save_author">Save changes</button>
+        <button type="submit" class="btn btn-primary" name="btn_save_author" id="btn_save_author">Save changes</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <input type="hidden" name="_token" value="{{csrf_token()}}">
       </div>
@@ -55,11 +56,44 @@
 </div>
 
 <script>
-  $(document).ready(function(){
 
+jQuery(document).ready(function(){
+            jQuery('#btn_save_author').click(function(e){
+               e.preventDefault();
+               $.ajaxSetup({
+                  headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                  }
+              });
+               jQuery.ajax({
+                  url: "{{ route('newauthor') }}",
+                  method: 'post',
+                  data: {
+                    firstname: jQuery('#firstname').val(),
+                    lastname: jQuery('#lastname').val(),
+                    dob: jQuery('#dob').val(),
+                    bio: jQuery('#bio').text(),
+                  },
+                  success: function(result){
+                  	if(result.errors)
+                  	{
+                  		jQuery('.alert-danger').html('');
 
+                  		jQuery.each(result.errors, function(key, value){
+                  			jQuery('.alert-danger').show();
+                  			jQuery('.alert-danger').append('<li>'+value+'</li>');
+                  		});
+                  	}
+                  	else
+                  	{
+                  		jQuery('.alert-danger').hide();
+                  		$('#author_form').modal('hide');
+                      location.reload();
+                  	}
+                  }});
+               });
+            });
 
-  });
 
 
 
