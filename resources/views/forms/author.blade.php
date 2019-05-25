@@ -58,50 +58,46 @@
 <script>
 
 jQuery(document).ready(function(){
-            jQuery('#btn_save_author').click(function(e){
-               e.preventDefault();
-               $.ajaxSetup({
-                  headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                  }
-              });
-               jQuery.ajax({
-                  url: "{{ route('newauthor') }}",
-                  method: 'post',
-                  data: {
-                    firstname: jQuery('#firstname').val(),
-                    lastname: jQuery('#lastname').val(),
-                    dob: jQuery('#dob').val(),
-                    bio: jQuery('#bio').text(),
-                  },
-                  success: function(result){
-                  	if(result.errors)
-                  	{
-                  		jQuery('.alert-danger').html('');
+  // start Document ready
 
-                  		jQuery.each(result.errors, function(key, value){
-                  			jQuery('.alert-danger').show();
-                  			jQuery('.alert-danger').append('<li>'+value+'</li>');
-                  		});
-                  	}
-                  	else
-                  	{
-                  		jQuery('.alert-danger').hide();
-                  		$('#author_form').modal('hide');
-                      //location.reload();
-                  	}
-                  },
-                  error: function (data) {
-                      var response = $.parseJSON(data.responseText);
-                  		jQuery('.alert-danger').html('');
-                  		jQuery.each(response.errors, function(key, value){
-                  			jQuery('.alert-danger').show();
-                  			jQuery('.alert-danger').append('<li>'+value+'</li>');
-                  		});
-                  }
-                  });
-               });
-            });
+  jQuery('#btn_save_author').click(function(e){
+    e.preventDefault();
+    $.ajaxSetup({
+      headers:
+      {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      }
+    });
+
+    jQuery.ajax({
+      url: "{{ route('newauthor') }}",
+      method: 'post',
+      data: {
+        firstname: jQuery('#firstname').val(),
+        lastname: jQuery('#lastname').val(),
+        dob: jQuery('#dob').val(),
+        bio: jQuery('#bio').text(),
+      },
+      success: function(result)
+      {
+        location.reload();
+      },
+      error: function (data)
+      {
+        var response = $.parseJSON(data.responseText);
+        jQuery('.alert-danger').html('');
+        jQuery.each(response.errors, function(key, value)
+        {
+          jQuery('.alert-danger').show();
+          jQuery('.alert-danger').append('<li>'+value+'</li>');
+        });
+      }
+    });
+  });
+
+
+//end document ready
+});
 
 
 
