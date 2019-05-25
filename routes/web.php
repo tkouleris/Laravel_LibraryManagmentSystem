@@ -13,6 +13,7 @@
 
 Route::get('/', function () {
 
+
     if (Auth::check()) return view('dashboard');
 
     return view('auth.login');
@@ -22,4 +23,6 @@ Auth::routes();
 
 Route::get('/dashboard', 'DashboardController@getDashboardData')->name('dashboard');
 Route::get('/books', 'BooksController@getBooks');
+Route::post('/newauthor',['uses'=>'AuthorController@insert_new_author','as'=>'newauthor'
+]);
 

@@ -10,14 +10,15 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-        <div class="modal-body">
+      <form action="{{ route('newauthor') }}" method="post">
+       <div class="modal-body">
 
             <!-- First Name -->
             <div class="input-group mb-3">
               <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroup-sizing-default">First Name</span>
               </div>
-              <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+              <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="firstname" id="firstname">
             </div>
 
             <!-- Last Name -->
@@ -25,7 +26,7 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text" id="inputGroup-sizing-default">Last Name</span>
                 </div>
-                <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="lastname" id="lastname">
             </div>
 
             <!-- Date of Birth  -->
@@ -33,28 +34,34 @@
               <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroup-sizing-default">Date of Birth</span>
               </div>
-              <input type="text" class="form-control" aria-label="Default" data-date-format="yyyy-mm-dd" aria-describedby="inputGroup-sizing-default" data-provide="datepicker" readonly>
+              <input type="text" class="form-control" aria-label="Default" data-date-format="yyyy-mm-dd" aria-describedby="inputGroup-sizing-default" data-provide="datepicker" name="dob" id="dob" readonly>
             </div>
 
             <!-- Bio -->
             <div class="form-group">
               <label for="exampleFormControlTextarea1">Bio</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="bio" id="bio" ></textarea>
             </div>
 
         </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="submit" class="btn btn-primary" id="btn_save_author">Save changes</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <input type="hidden" name="_token" value="{{csrf_token()}}">
       </div>
+    </div>
     </div>
   </div>
 </div>
 
 <script>
-$('.datepicker').datepicker({
-  format: 'yyyy/mm/dd',
-  startDate: '-3d'
-})
+  $(document).ready(function(){
+
+
+
+  });
+
+
+
 </script>
 
