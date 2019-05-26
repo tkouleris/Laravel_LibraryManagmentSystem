@@ -1,6 +1,7 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.css" >
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"></script>
+
 <div class="modal" tabindex="-1" role="dialog" id="author_form">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -13,7 +14,6 @@
       <div class="alert alert-danger" style="display:none"></div>
       <form action="" method="post">
        <div class="modal-body">
-
             <!-- First Name -->
             <div class="input-group mb-3">
               <div class="input-group-prepend">
@@ -49,6 +49,7 @@
         <button type="submit" class="btn btn-primary" name="btn_save_author" id="btn_save_author">Save changes</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <input type="hidden" name="_token" value="{{csrf_token()}}">
+        <input type="hidden" name="form_authorid" value="0">
       </div>
     </div>
     </div>
