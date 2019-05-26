@@ -50,36 +50,30 @@
 </div>
 <script>
 $(document).ready(function() {
-
+    var authorid = 0;
     var modal_form = $("#author_form");
     $("button[name=author_row]").click(function(){
-        var authorid = $(this).attr("data-authorid");
+        authorid = $(this).attr("data-authorid");
 
         $("#btn_edit_author").click(function(){
-            console.log(authorid);
 
             jQuery.ajax({
-            url: "",
+            url: "/author/"+authorid,
             method: 'get',
             data: {
-                firstname: jQuery('#firstname').val(),
-                lastname: jQuery('#lastname').val(),
-                dob: jQuery('#dob').val(),
-                bio: jQuery('#bio').text(),
+                id: authorid
             },
             success: function(result)
             {
-                location.reload();
+                $('#author_form').modal('show');
+                $("input[name=firstname]").val(result.firstname)
+                $("input[name=lastname]").val(result.lastname)
+                $("input[name=dob]").val(result.dob)
+                $("textarea[name=bio]").text(result.bio)
             },
             error: function (data)
             {
-                var response = $.parseJSON(data.responseText);
-                jQuery('.alert-danger').html('');
-                jQuery.each(response.errors, function(key, value)
-                {
-                jQuery('.alert-danger').show();
-                jQuery('.alert-danger').append('<li>'+value+'</li>');
-                });
+                // TODO: error message
             }
             });
         });

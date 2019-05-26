@@ -29,3 +29,5 @@ Route::post('/newauthor',
     ]
 );
 
+Route::get("/author/{id}", "AuthorController@get_author");
+
