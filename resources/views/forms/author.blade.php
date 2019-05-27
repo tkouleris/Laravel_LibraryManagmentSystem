@@ -85,7 +85,7 @@ jQuery(document).ready(function(){
         firstname: jQuery('#firstname').val(),
         lastname: jQuery('#lastname').val(),
         dob: jQuery('#dob').val(),
-        bio: jQuery('#bio').text(),
+        bio: jQuery('textarea[name=bio]').val(),
       },
       success: function(result)
       {

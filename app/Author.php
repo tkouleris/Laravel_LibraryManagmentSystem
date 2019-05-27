@@ -10,6 +10,6 @@ class Author extends Model
         'firstname',
         'lastname',
         'dob',
-        'bio'
+        'bio',
     ];
 }
