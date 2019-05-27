@@ -30,4 +30,6 @@ Route::post('/newauthor',
 );
 
 Route::get("/author/{id}", "AuthorController@get_author");
+Route::post("/updateauthor", ['uses' => "AuthorController@update_author", 'as'=>'updateauthor']);
+
 

@@ -38,7 +38,7 @@
                     <button type="button" name="author_row" data-authorid="{{ $author->id }}" class="list-group-item list-group-item-action">{{ $author->lastname.' '.$author->firstname }}</button>
                 @endforeach
                 <div class="btn-group" role="group" aria-label="Basic example" style="padding-top:5px;">
-                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#author_form">Add </button>
+                    <button type="button" class="btn btn-success" id="btn_new_author" data-toggle="modal" data-target="#author_form">Add </button>
                     <button type="button" class="btn btn-secondary"  id="btn_edit_author">Edit</button>
                     <button type="button" class="btn btn-danger">Delete</button>
                 </div>
@@ -51,7 +51,16 @@
 <script>
 $(document).ready(function() {
     var authorid = 0;
-    var modal_form = $("#author_form");
+
+    $("#btn_new_author").click(function(){
+        $("input[name=firstname]").val('')
+        $("input[name=lastname]").val('')
+        $("input[name=dob]").val('')
+        $("textarea[name=bio]").text('')
+        $("input[name=form_authorid]").val(0)
+
+    });
+
     $("button[name=author_row]").click(function(){
         authorid = $(this).attr("data-authorid");
 
@@ -70,6 +79,7 @@ $(document).ready(function() {
                 $("input[name=lastname]").val(result.lastname)
                 $("input[name=dob]").val(result.dob)
                 $("textarea[name=bio]").text(result.bio)
+                $("input[name=form_authorid]").val(result.id)
             },
             error: function (data)
             {

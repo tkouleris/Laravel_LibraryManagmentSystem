@@ -39,4 +39,19 @@ class AuthorController extends Controller
         return $author;
     }
 
+    public function update_author(AuthorInsertRequest $request)
+    {
+        $authorid = $request->authorid;
+        $author = Author::find($authorid);
+
+        $author->firstname = $request->firstname;
+        $author->lastname = $request->lastname;
+        $author->dob = $request->dob;
+        $author->bio = $request->bio;
+
+        $author->save();
+
+        return redirect('dashboard');
+    }
+
 }

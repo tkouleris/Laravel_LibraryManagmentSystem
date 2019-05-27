@@ -63,6 +63,13 @@ jQuery(document).ready(function(){
 
   jQuery('#btn_save_author').click(function(e){
     e.preventDefault();
+
+    var authorid = $('input[name=form_authorid]').val();
+
+    var ajaxURI = "{{ route('newauthor') }}"
+    if( authorid > 0)
+      ajaxURI = "{{ route('updateauthor') }}";
+
     $.ajaxSetup({
       headers:
       {
@@ -71,9 +78,10 @@ jQuery(document).ready(function(){
     });
 
     jQuery.ajax({
-      url: "{{ route('newauthor') }}",
+      url: ajaxURI,
       method: 'post',
       data: {
+        authorid: authorid,
         firstname: jQuery('#firstname').val(),
         lastname: jQuery('#lastname').val(),
         dob: jQuery('#dob').val(),
