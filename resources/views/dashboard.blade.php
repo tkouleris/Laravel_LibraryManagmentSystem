@@ -50,9 +50,9 @@
 </div>
 <script>
 $(document).ready(function() {
-    var authorid = 0;
 
     $("#btn_new_author").click(function(){
+
         $("input[name=firstname]").val('')
         $("input[name=lastname]").val('')
         $("input[name=dob]").val('')
