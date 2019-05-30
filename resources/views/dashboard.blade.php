@@ -13,6 +13,11 @@
                 @foreach($books as $book)
                     <button type="button" class="list-group-item list-group-item-action">{{ $book->title }}</button>
                 @endforeach
+                <div class="btn-group" role="group" aria-label="Basic example" style="padding-top:5px;">
+                    <button type="button" class="btn btn-success" id="btn_new_book" data-toggle="modal" data-target="#book_form">Add </button>
+                    <button type="button" class="btn btn-secondary"  id="btn_edit_author">Edit</button>
+                    <button type="button" class="btn btn-danger">Delete</button>
+                </div>
             </div>
         </div>
         <!-- Borrowers List -->
@@ -96,5 +101,6 @@ $(document).ready(function() {
 </script>
 
 @include('forms.author')
+@include('forms.book')
 @endsection
 
