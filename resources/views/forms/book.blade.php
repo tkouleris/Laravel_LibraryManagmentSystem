@@ -82,7 +82,7 @@
         <button type="submit" class="btn btn-primary" name="btn_save_author" id="btn_save_author">Save changes</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <input type="hidden" name="_token" value="{{csrf_token()}}">
-        <input type="hidden" name="form_authorid" value="0">
+        <input type="hidden" name="form_bookid" value="0">
       </div>
     </div>
     </div>
@@ -97,9 +97,9 @@ jQuery(document).ready(function(){
   jQuery('#btn_save_author').click(function(e){
     e.preventDefault();
 
-    var authorid = $('input[name=form_authorid]').val();
+    var bookid = $('input[name=form_bookid]').val();
 
-    var ajaxURI = "{{ route('newauthor') }}"
+    var ajaxURI = "{{ route('newbook') }}"
     if( authorid > 0)
       ajaxURI = "{{ route('updateauthor') }}";
 
@@ -114,11 +114,10 @@ jQuery(document).ready(function(){
       url: ajaxURI,
       method: 'post',
       data: {
-        authorid: authorid,
-        firstname: jQuery('#firstname').val(),
-        lastname: jQuery('#lastname').val(),
-        dob: jQuery('#dob').val(),
-        bio: jQuery('textarea[name=bio]').val(),
+        bookid: bookid,
+        title: jQuery('#title').val(),
+        isbn10: jQuery('#isbn10').val(),
+        isbn13: jQuery('#isbn13').val(),
       },
       success: function(result)
       {
