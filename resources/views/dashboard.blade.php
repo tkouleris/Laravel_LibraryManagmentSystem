@@ -11,11 +11,11 @@
             <div class="list-group" >
                 <h3>Available Books</h3>
                 @foreach($books as $book)
-                    <button type="button" class="list-group-item list-group-item-action">{{ $book->title }}</button>
+                    <button type="button" data-bookid="{{ $book->id }}" name="book_row" class="list-group-item list-group-item-action">{{ $book->title }}</button>
                 @endforeach
                 <div class="btn-group" role="group" aria-label="Basic example" style="padding-top:5px;">
                     <button type="button" class="btn btn-success" id="btn_new_book" data-toggle="modal" data-target="#book_form">Add </button>
-                    <button type="button" class="btn btn-secondary"  id="btn_edit_author">Edit</button>
+                    <button type="button" class="btn btn-secondary"  id="btn_edit_book">Edit</button>
                     <button type="button" class="btn btn-danger">Delete</button>
                 </div>
             </div>
@@ -95,7 +95,35 @@ $(document).ready(function() {
 
     });
 
+    // Books Button Handlers
+    $("button[name=book_row]").click(function(){
+        bookid = $(this).attr("data-bookid");
 
+        $("#btn_edit_book").click(function(){
+
+            jQuery.ajax({
+            url: "/book/"+bookid,
+            method: 'get',
+            data: {
+                id: bookid
+            },
+            success: function(result)
+            {
+                $('#book_form').modal('show');
+                $("input[name=title]").val(result.title)
+                $("input[name=isbn10]").val(result.isbn10)
+                $("input[name=isbn13]").val(result.isbn13)
+                $("input[name=year]").val(result.year)
+                // $("input[name=form_authorid]").val(result.id)
+            },
+            error: function (data)
+            {
+                // TODO: error message
+            }
+            });
+        });
+
+    });
 
 });
 </script>

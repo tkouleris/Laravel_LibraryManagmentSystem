@@ -30,4 +30,11 @@ class BookController extends Controller
         $author = Author::find([$author0, $author1, $author2]);
         $book->authors()->attach($author);
     }
+
+    public function get_book(Book $book)
+    {
+        return $book;
+    }
+
+
 }

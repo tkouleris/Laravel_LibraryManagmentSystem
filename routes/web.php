@@ -39,5 +39,6 @@ Route::post('/newbook',
     ]
 );
 
+Route::get("/book/{book}", "BookController@get_book");
 
 
