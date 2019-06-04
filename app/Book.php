@@ -8,6 +8,6 @@ class Book extends Model
 {
     public function authors()
     {
-        return $this->belongsToMany(Author::class);
+        return $this->belongsToMany('App\Author','book_author');
     }
 }

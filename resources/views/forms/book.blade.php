@@ -49,37 +49,37 @@
 
             <div class="form-group mb-3">
                 <label for="sel1">Author No1:</label>
-                <select class="form-control" id="sel1">
-                    <option>-</option>
+                <select class="form-control" id="author0">
+                    <option id='0'>-</option>
                     @foreach( $authors as $author )
-                        <option>{{ $author->lastname.' '.$author->firstname}}</option>
+                        <option id='{{ $author->id }}'>{{ $author->lastname.' '.$author->firstname}}</option>
                     @endforeach
                 </select>
             </div>
 
             <div class="form-group mb-3">
                 <label for="sel1">Author No2:</label>
-                <select class="form-control" id="sel1">
-                    <option>-</option>
+                <select class="form-control" id="author1">
+                    <option id='0'>-</option>
                     @foreach( $authors as $author )
-                        <option>{{ $author->lastname.' '.$author->firstname}}</option>
+                        <option id='{{ $author->id }}'>{{ $author->lastname.' '.$author->firstname}}</option>
                     @endforeach
                 </select>
             </div>
 
             <div class="form-group mb-3">
                 <label for="sel1">Author No3:</label>
-                <select class="form-control" id="sel1">
-                    <option>-</option>
+                <select class="form-control" id="author2">
+                    <option id='0'>-</option>
                     @foreach( $authors as $author )
-                        <option>{{ $author->lastname.' '.$author->firstname}}</option>
+                        <option id='{{ $author->id }}'>{{ $author->lastname.' '.$author->firstname}}</option>
                     @endforeach
                 </select>
             </div>
 
         </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-primary" name="btn_save_author" id="btn_save_author">Save changes</button>
+        <button type="submit" class="btn btn-primary" name="btn_save_book" id="btn_save_book">Save changes</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <input type="hidden" name="_token" value="{{csrf_token()}}">
         <input type="hidden" name="form_bookid" value="0">
@@ -94,14 +94,18 @@
 jQuery(document).ready(function(){
   // start Document ready
 
-  jQuery('#btn_save_author').click(function(e){
+  jQuery('#btn_save_book').click(function(e){
     e.preventDefault();
 
     var bookid = $('input[name=form_bookid]').val();
 
+    var author0 = $("#author0").find('option:selected').attr('id');
+    var author1 = $("#author1").find('option:selected').attr('id');
+    var author2 = $("#author2").find('option:selected').attr('id');
+
     var ajaxURI = "{{ route('newbook') }}"
-    if( authorid > 0)
-      ajaxURI = "{{ route('updateauthor') }}";
+    // if( authorid > 0)
+    //   ajaxURI = "{{ route('updateauthor') }}";
 
     $.ajaxSetup({
       headers:
@@ -118,6 +122,9 @@ jQuery(document).ready(function(){
         title: jQuery('#title').val(),
         isbn10: jQuery('#isbn10').val(),
         isbn13: jQuery('#isbn13').val(),
+        author0: author0,
+        author1: author1,
+        author2: author2
       },
       success: function(result)
       {
@@ -136,7 +143,7 @@ jQuery(document).ready(function(){
     });
   });
 
-
+  console.log( "book saved")
 //end document ready
 });
 
