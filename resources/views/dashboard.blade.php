@@ -116,13 +116,12 @@ $(document).ready(function() {
                 $("input[name=isbn10]").val(result.isbn10)
                 $("input[name=isbn13]").val(result.isbn13)
                 $("input[name=year]").val(result.year)
-
+                $("input[name=form_bookid]").val(result.id)
                 var i = 0;
                 authors.forEach(function(author) {
                     $('select#author'+i+' option[id='+author.id+']')[0].setAttribute('selected','selected');
                     i++;
                 });
-                // $("input[name=form_authorid]").val(result.id)
             },
             error: function (data)
             {

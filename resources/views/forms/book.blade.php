@@ -104,8 +104,8 @@ jQuery(document).ready(function(){
     var author2 = $("#author2").find('option:selected').attr('id');
 
     var ajaxURI = "{{ route('newbook') }}"
-    // if( authorid > 0)
-    //   ajaxURI = "{{ route('updateauthor') }}";
+    if( bookid > 0)
+      ajaxURI = "{{ route('updatebook') }}";
 
     $.ajaxSetup({
       headers:
