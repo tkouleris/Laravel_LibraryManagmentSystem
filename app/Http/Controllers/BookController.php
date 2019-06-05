@@ -31,8 +31,10 @@ class BookController extends Controller
         $book->authors()->attach($author);
     }
 
-    public function get_book(Book $book)
+    public function get_book($id)
     {
+        $book = Book::with('authors')->findOrFail($id);
+
         return $book;
     }
 

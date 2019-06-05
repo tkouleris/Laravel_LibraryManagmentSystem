@@ -109,11 +109,19 @@ $(document).ready(function() {
             },
             success: function(result)
             {
+                var authors = result.authors;
+
                 $('#book_form').modal('show');
                 $("input[name=title]").val(result.title)
                 $("input[name=isbn10]").val(result.isbn10)
                 $("input[name=isbn13]").val(result.isbn13)
                 $("input[name=year]").val(result.year)
+
+                var i = 0;
+                authors.forEach(function(author) {
+                    $('select#author'+i+' option[id='+author.id+']')[0].setAttribute('selected','selected');
+                    i++;
+                });
                 // $("input[name=form_authorid]").val(result.id)
             },
             error: function (data)

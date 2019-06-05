@@ -143,7 +143,6 @@ jQuery(document).ready(function(){
     });
   });
 
-  console.log( "book saved")
 //end document ready
 });
 
