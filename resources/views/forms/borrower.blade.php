@@ -77,7 +77,8 @@ jQuery(document).ready(function(){
     var borrowerid = $('input[name=form_borrowerid]').val();
 
     var ajaxURI = "{{ route('newborrower') }}"
-
+    if( borrowerid > 0)
+      ajaxURI = "{{ route('updateborrower') }}";
 
     $.ajaxSetup({
       headers:

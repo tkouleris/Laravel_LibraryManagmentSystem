@@ -148,6 +148,7 @@ $(document).ready(function() {
             success: function(result)
             {
                 $('#borrower_form').modal('show');
+                $("input[name=form_borrowerid]").val(result.id)
                 $("input[name=borrower_firstname]").val(result.firstname)
                 $("input[name=borrower_lastname]").val(result.lastname)
                 $("input[name=borrower_dob]").val(result.dob)

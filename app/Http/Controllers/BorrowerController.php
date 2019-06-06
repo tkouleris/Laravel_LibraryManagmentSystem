@@ -33,9 +33,22 @@ class BorrowerController extends Controller
 
     public function get_borrower(Borrower $borrower)
     {
-        //$author = Author::findOrFail($id);
-
-
         return $borrower;
+    }
+
+    public function update_borrower(BorrowerRequest $request)
+    {
+        $borrowerid = $request->borrowerid;
+        $borrower = Borrower::findOrFail($borrowerid);
+
+        $borrower->firstname = $request->firstname;
+        $borrower->lastname = $request->lastname;
+        $borrower->dob = $request->dob;
+        $borrower->address = $request->address;
+        $borrower->phone = $request->phone;
+
+        $borrower->save();
+
+        return redirect('dashboard');
     }
 }
