@@ -29,7 +29,7 @@
                 @endforeach
                 <div class="btn-group" role="group" aria-label="Basic example" style="padding-top:5px;">
                     <button type="button" class="btn btn-success" id="btn_new_borrower" data-toggle="modal" data-target="#borrower_form">Add </button>
-                    <button type="button" class="btn btn-secondary">Edit</button>
+                    <button type="button" class="btn btn-secondary" id="btn_edit_borrower">Edit</button>
                     <button type="button" class="btn btn-danger">Delete</button>
                 </div>
             </div>
@@ -122,6 +122,37 @@ $(document).ready(function() {
                     $('select#author'+i+' option[id='+author.id+']')[0].setAttribute('selected','selected');
                     i++;
                 });
+            },
+            error: function (data)
+            {
+                // TODO: error message
+            }
+            });
+        });
+
+    });
+
+
+    // Borrower Button Handlers
+    $("button[name=borrower_row]").click(function(){
+        borrowerid = $(this).attr("data-borrowerid");
+
+        $("#btn_edit_borrower").click(function(){
+
+            jQuery.ajax({
+            url: "/borrower/"+borrowerid,
+            method: 'get',
+            data: {
+                id: borrowerid
+            },
+            success: function(result)
+            {
+                $('#borrower_form').modal('show');
+                $("input[name=borrower_firstname]").val(result.firstname)
+                $("input[name=borrower_lastname]").val(result.lastname)
+                $("input[name=borrower_dob]").val(result.dob)
+                $("input[name=borrower_address]").val(result.address)
+                $("input[name=borrower_phone]").val(result.phone)
             },
             error: function (data)
             {

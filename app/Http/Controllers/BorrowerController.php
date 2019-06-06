@@ -29,4 +29,13 @@ class BorrowerController extends Controller
 
         return redirect('dashboard');
     }
+
+
+    public function get_borrower(Borrower $borrower)
+    {
+        //$author = Author::findOrFail($id);
+
+
+        return $borrower;
+    }
 }

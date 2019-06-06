@@ -49,4 +49,6 @@ Route::post('/newborrower',
     ]
 );
 
+Route::get("/borrower/{borrower}", "BorrowerController@get_borrower");
+
 
