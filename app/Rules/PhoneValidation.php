@@ -4,7 +4,7 @@ namespace App\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
 
-class ValidPhone implements Rule
+class PhoneValidation implements Rule
 {
     /**
      * Create a new rule instance.
@@ -25,7 +25,7 @@ class ValidPhone implements Rule
      */
     public function passes($attribute, $value)
     {
-        if(empty($value)) return false;
+        if(empty($value)) return true;
 
         $non_digits = [' ', '(', ')', '-', '.', '+'];
         $nums = str_replace($non_digits, '', $value);

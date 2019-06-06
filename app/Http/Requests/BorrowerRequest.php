@@ -3,7 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Rules\ValidPhone;
+use App\Rules\PhoneValidation;
 
 class BorrowerRequest extends FormRequest
 {
@@ -25,7 +25,7 @@ class BorrowerRequest extends FormRequest
     public function rules()
     {
         return [
-            'phone'=>[new ValidPhone]
+            'phone'=>[new PhoneValidation]
         ];
     }
 }
