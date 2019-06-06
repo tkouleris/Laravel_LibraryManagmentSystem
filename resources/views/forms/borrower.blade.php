@@ -56,10 +56,10 @@
 
         </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-primary" name="btn_save_author" id="btn_save_author">Save changes</button>
+        <button type="submit" class="btn btn-primary" name="btn_save_borrower" id="btn_save_borrower">Save changes</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <input type="hidden" name="_token" value="{{csrf_token()}}">
-        <input type="hidden" name="form_authorid" value="0">
+        <input type="hidden" name="form_borrowerid" value="0">
       </div>
     </div>
     </div>
@@ -71,14 +71,13 @@
 jQuery(document).ready(function(){
   // start Document ready
 
-  jQuery('#btn_save_author').click(function(e){
+  jQuery('#btn_save_borrower').click(function(e){
     e.preventDefault();
 
-    var authorid = $('input[name=form_authorid]').val();
+    var borrowerid = $('input[name=form_borrowerid]').val();
 
-    var ajaxURI = "{{ route('newauthor') }}"
-    if( authorid > 0)
-      ajaxURI = "{{ route('updateauthor') }}";
+    var ajaxURI = "{{ route('newborrower') }}"
+
 
     $.ajaxSetup({
       headers:
@@ -91,11 +90,12 @@ jQuery(document).ready(function(){
       url: ajaxURI,
       method: 'post',
       data: {
-        authorid: authorid,
-        firstname: jQuery('#firstname').val(),
-        lastname: jQuery('#lastname').val(),
-        dob: jQuery('#dob').val(),
-        bio: jQuery('textarea[name=bio]').val(),
+        borrowerid: borrowerid,
+        firstname: jQuery('#borrower_firstname').val(),
+        lastname: jQuery('#borrower_lastname').val(),
+        dob: jQuery('#borrower_dob').val(),
+        address: jQuery('#borrower_address').val(),
+        phone: jQuery('#borrower_phone').val(),
       },
       success: function(result)
       {

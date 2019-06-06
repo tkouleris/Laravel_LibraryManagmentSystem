@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\BorrowerRequest;
+use App\Borrower;
 
 class BorrowerController extends Controller
 {
-    public function insert_new_author(AuthorInsertRequest $request)
+    public function insert_new_borrower(BorrowerRequest $request)
     {
 
         $firstname = $request['firstname'];
@@ -16,12 +17,13 @@ class BorrowerController extends Controller
         $phone = $request['phone'];
 
 
-        $author = Author::create(
+        $borrower = Borrower::create(
             [
                 'firstname' => $firstname,
                 'lastname' => $lastname,
                 'dob' => $dob,
-                'bio' => $bio,
+                'address' => $address,
+                'phone' => $phone,
             ]
         );
 

@@ -43,3 +43,10 @@ Route::get("/book/{book}", "BookController@get_book");
 Route::post("/updatebook", ['uses' => "BookController@update_book", 'as'=>'updatebook']);
 
 
+Route::post('/newborrower',
+    [
+        'uses'=>'BorrowerController@insert_new_borrower','as'=>'newborrower'
+    ]
+);
+
+
