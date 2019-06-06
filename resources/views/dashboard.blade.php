@@ -25,10 +25,10 @@
             <h3>Borrowers</h3>
             <div class="list-group" >
                 @foreach($borrowers as $borrower)
-                    <button type="button" class="list-group-item list-group-item-action">{{ $borrower->lastname.' '.$borrower->firstname }}</button>
+                    <button type="button" data-borrowerid="{{ $borrower->id }}" name="borrower_row" class="list-group-item list-group-item-action">{{ $borrower->lastname.' '.$borrower->firstname }}</button>
                 @endforeach
                 <div class="btn-group" role="group" aria-label="Basic example" style="padding-top:5px;">
-                    <button type="button" class="btn btn-success">Add </button>
+                    <button type="button" class="btn btn-success" id="btn_new_borrower" data-toggle="modal" data-target="#borrower_form">Add </button>
                     <button type="button" class="btn btn-secondary">Edit</button>
                     <button type="button" class="btn btn-danger">Delete</button>
                 </div>
@@ -135,7 +135,8 @@ $(document).ready(function() {
 });
 </script>
 
-@include('forms.author')
 @include('forms.book')
+@include('forms.borrower')
+@include('forms.author')
 @endsection
 
