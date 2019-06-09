@@ -38,5 +38,9 @@ class BookController extends Controller
     }
 
 
-
+    public function getBooks()
+    {
+        $books = $this->bookRepo->get_all_limit_by(0);
+        return view('books',['books' => $books]);
+    }
 }

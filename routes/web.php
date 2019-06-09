@@ -21,28 +21,33 @@ Route::get('/', function () {
 
 Auth::routes();
 
+
+// Dashboard
 Route::get('/dashboard', 'DashboardController@getDashboardData')->name('dashboard');
-Route::get('/books', 'BooksController@getBooks');
-Route::post('/newauthor',
-    [
-        'uses'=>'AuthorController@insert_new_author','as'=>'newauthor'
-    ]
-);
-
-Route::get("/author/{id}", "AuthorController@get_author");
-Route::post("/updateauthor", ['uses' => "AuthorController@update_author", 'as'=>'updateauthor']);
 
 
+// Books
+Route::get('/books', 'BookController@getBooks')->name('books');
 Route::post('/newbook',
     [
         'uses'=>'BookController@insert_new_book','as'=>'newbook'
     ]
 );
-
 Route::get("/book/{book}", "BookController@get_book");
 Route::post("/updatebook", ['uses' => "BookController@update_book", 'as'=>'updatebook']);
 
 
+// Author
+Route::post('/newauthor',
+    [
+        'uses'=>'AuthorController@insert_new_author','as'=>'newauthor'
+    ]
+);
+Route::get("/author/{id}", "AuthorController@get_author");
+Route::post("/updateauthor", ['uses' => "AuthorController@update_author", 'as'=>'updateauthor']);
+
+
+// Borrower
 Route::post('/newborrower',
     [
         'uses'=>'BorrowerController@insert_new_borrower','as'=>'newborrower'
