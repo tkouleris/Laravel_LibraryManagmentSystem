@@ -10,6 +10,9 @@ use App\Http\Repositories\RepositoryInterfaces\AuthorRepoInterface;
 use App\Http\Repositories\BorrowerEloquentRepo;
 use App\Http\Repositories\RepositoryInterfaces\BorrowerRepoInterface;
 
+use App\Http\Repositories\BookEloquentRepo;
+use App\Http\Repositories\RepositoryInterfaces\BookRepoInterface;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -21,6 +24,7 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->app->bind(AuthorRepoInterface::class, AuthorEloquentRepo::class);
         $this->app->bind(BorrowerRepoInterface::class, BorrowerEloquentRepo::class);
+        $this->app->bind(BookRepoInterface::class, BookEloquentRepo::class);
     }
 
     /**
