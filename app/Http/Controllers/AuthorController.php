@@ -5,9 +5,16 @@ namespace App\Http\Controllers;
 use App\Http\Requests\AuthorInsertRequest;
 
 use App\Author;
+use App\Http\Repositories\RepositoryInterfaces\AuthorRepoInterface;
 
 class AuthorController extends Controller
 {
+    protected $authorRepo;
+
+    public function __construct(AuthorRepoInterface $author)
+    {
+        $this->authorRepo = $author;
+    }
 
     public function insert_new_author(AuthorInsertRequest $request)
     {
