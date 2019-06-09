@@ -31,4 +31,10 @@ class AuthorController extends Controller
         return redirect('dashboard');
     }
 
+
+    public function getAuthors()
+    {
+        $authors = $this->authorRepo->get_all_limit_by(0);
+        return view('authors',['authors' => $authors]);
+    }
 }

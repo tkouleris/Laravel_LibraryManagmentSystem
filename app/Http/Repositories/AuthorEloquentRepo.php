@@ -16,9 +16,10 @@
         }
 
 
-        public function get_all_limit_by($limit)
+        public function get_all_limit_by($limit = 0)
         {
-            $authors = $this->model::all()->take($limit);
+            if( $limit <= 0) $authors = $this->model::all();
+            if( $limit > 0 ) $authors = $this->model::all()->take($limit);
             return $authors;
         }
 

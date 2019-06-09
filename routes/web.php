@@ -38,6 +38,7 @@ Route::post("/updatebook", ['uses' => "BookController@update_book", 'as'=>'updat
 
 
 // Author
+Route::get('/authors', 'AuthorController@getAuthors')->name('authors');
 Route::post('/newauthor',
     [
         'uses'=>'AuthorController@insert_new_author','as'=>'newauthor'
