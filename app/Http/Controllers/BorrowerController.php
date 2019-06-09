@@ -34,4 +34,10 @@ class BorrowerController extends Controller
         $this->borrowerRepo->update_record($request);
         return redirect('dashboard');
     }
+
+    public function getBorrowers()
+    {
+        $borrowers = $this->borrowerRepo->get_all_limit_by(0);
+        return view('borrowers',['borrowers' => $borrowers]);
+    }
 }

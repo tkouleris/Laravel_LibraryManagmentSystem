@@ -49,6 +49,7 @@ Route::post("/updateauthor", ['uses' => "AuthorController@update_author", 'as'=>
 
 
 // Borrower
+Route::get('/borrowers', 'BorrowerController@getBorrowers')->name('borrowers');
 Route::post('/newborrower',
     [
         'uses'=>'BorrowerController@insert_new_borrower','as'=>'newborrower'

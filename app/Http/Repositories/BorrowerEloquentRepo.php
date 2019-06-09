@@ -16,10 +16,11 @@
         }
 
 
-        public function get_all_limit_by($limit)
+        public function get_all_limit_by($limit = 0)
         {
-            $borrower = $this->model::all()->take($limit);
-            return $borrower;
+            if( $limit <= 0 ) $borrowers = $this->model::all();
+            if( $limit > 0 ) $borrowers = $this->model::all()->take($limit);
+            return $borrowers;
         }
 
 
