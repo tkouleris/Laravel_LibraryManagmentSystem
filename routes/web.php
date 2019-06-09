@@ -49,7 +49,7 @@ Route::post('/newborrower',
     ]
 );
 
-Route::get("/borrower/{borrower}", "BorrowerController@get_borrower");
+Route::get("/borrower/{id}", "BorrowerController@get_borrower");
 Route::post("/updateborrower", ['uses' => "BorrowerController@update_borrower", 'as'=>'updateborrower']);
 
 

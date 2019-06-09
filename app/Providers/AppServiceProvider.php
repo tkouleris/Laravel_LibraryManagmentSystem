@@ -3,8 +3,12 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+
 use App\Http\Repositories\AuthorEloquentRepo;
 use App\Http\Repositories\RepositoryInterfaces\AuthorRepoInterface;
+
+use App\Http\Repositories\BorrowerEloquentRepo;
+use App\Http\Repositories\RepositoryInterfaces\BorrowerRepoInterface;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -15,9 +19,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
-        //$this->app->bind('App\Http\Repositories\RepositoryInterfaces\AuthorRepoInterface', 'App\Http\Repositories\AuthorEloquentRepo');
         $this->app->bind(AuthorRepoInterface::class, AuthorEloquentRepo::class);
+        $this->app->bind(BorrowerRepoInterface::class, BorrowerEloquentRepo::class);
     }
 
     /**

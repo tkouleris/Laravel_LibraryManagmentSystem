@@ -3,52 +3,35 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\BorrowerRequest;
-use App\Borrower;
+use App\Http\Repositories\RepositoryInterfaces\BorrowerRepoInterface;
 
 class BorrowerController extends Controller
 {
+
+    protected $borrowerRepo;
+
+    public function __construct(BorrowerRepoInterface $borrower)
+    {
+        $this->borrowerRepo = $borrower;
+    }
+
+
     public function insert_new_borrower(BorrowerRequest $request)
     {
-
-        $firstname = $request['firstname'];
-        $lastname = $request['lastname'];
-        $dob = $request['dob'];
-        $address = $request['address'];
-        $phone = $request['phone'];
-
-
-        $borrower = Borrower::create(
-            [
-                'firstname' => $firstname,
-                'lastname' => $lastname,
-                'dob' => $dob,
-                'address' => $address,
-                'phone' => $phone,
-            ]
-        );
-
+        $this->borrowerRepo->create_record($request);
         return redirect('dashboard');
     }
 
 
-    public function get_borrower(Borrower $borrower)
+    public function get_borrower($id)
     {
-        return $borrower;
+        return $this->borrowerRepo->get_record_by_id($id);
     }
+
 
     public function update_borrower(BorrowerRequest $request)
     {
-        $borrowerid = $request->borrowerid;
-        $borrower = Borrower::findOrFail($borrowerid);
-
-        $borrower->firstname = $request->firstname;
-        $borrower->lastname = $request->lastname;
-        $borrower->dob = $request->dob;
-        $borrower->address = $request->address;
-        $borrower->phone = $request->phone;
-
-        $borrower->save();
-
+        $this->borrowerRepo->update_record($request);
         return redirect('dashboard');
     }
 }

@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AuthorInsertRequest;
-
-use App\Author;
 use App\Http\Repositories\RepositoryInterfaces\AuthorRepoInterface;
 
 class AuthorController extends Controller
