@@ -6,15 +6,64 @@
     use App\Http\Repositories\RepositoryInterfaces\AuthorRepoInterface;
 
     class AuthorEloquentRepo implements AuthorRepoInterface{
+
         protected $model;
 
-        public function __construct(Author $author) {
+
+        public function __construct(Author $author)
+        {
             $this->model = $author;
         }
 
-        public function get_all_limit_by($number_of_rows){
 
-            $authors = $model::all()->take($number_of_rows);
+        public function get_all_limit_by($limit)
+        {
+            $authors = $this->model::all()->take($limit);
             return $authors;
         }
+
+
+        public function get_record_by_id($id)
+        {
+            $author = $this->model::findOrFail($id);
+            return $author;
+        }
+
+
+        public function create_record($data)
+        {
+            $firstname = $data['firstname'];
+            $lastname = $data['lastname'];
+            $dob = $data['dob'];
+            $bio = $data['bio'];
+
+            $author = $this->model::create(
+                [
+                    'firstname' => $firstname,
+                    'lastname' => $lastname,
+                    'dob' => $dob,
+                    'bio' => $bio,
+                ]
+            );
+
+            return $author;
+        }
+
+
+        public function update_record($data)
+        {
+            $authorid = $data->authorid;
+            $author = $this->model::findOrFail($authorid);
+
+            $author->firstname = $data->firstname;
+            $author->lastname = $data->lastname;
+            $author->dob = $data->dob;
+            $author->bio = $data->bio;
+
+            $author->save();
+
+            return $author;
+        }
+
+
     }

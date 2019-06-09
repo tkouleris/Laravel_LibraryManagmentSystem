@@ -18,45 +18,18 @@ class AuthorController extends Controller
 
     public function insert_new_author(AuthorInsertRequest $request)
     {
-
-        $firstname = $request['firstname'];
-        $lastname = $request['lastname'];
-        $dob = $request['dob'];
-        $bio = $request['bio'];
-
-
-        $author = Author::create(
-            [
-                'firstname' => $firstname,
-                'lastname' => $lastname,
-                'dob' => $dob,
-                'bio' => $bio,
-            ]
-        );
-
+        $this->authorRepo->create_record($request);
         return redirect('dashboard');
     }
 
     public function get_author($id)
     {
-        $author = Author::findOrFail($id);
-
-
-        return $author;
+        return $this->authorRepo->get_record_by_id($id);
     }
 
     public function update_author(AuthorInsertRequest $request)
     {
-        $authorid = $request->authorid;
-        $author = Author::find($authorid);
-
-        $author->firstname = $request->firstname;
-        $author->lastname = $request->lastname;
-        $author->dob = $request->dob;
-        $author->bio = $request->bio;
-
-        $author->save();
-
+        $this->authorRepo->update_record($request);
         return redirect('dashboard');
     }
 
