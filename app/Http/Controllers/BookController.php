@@ -20,8 +20,7 @@ class BookController extends Controller
 
     public function insert_new_book(BookInsertRequest $request)
     {
-        $this->bookRepo->create_record($request);
-        return redirect('dashboard');
+        return $this->bookRepo->create_record($request);
     }
 
 
@@ -33,8 +32,7 @@ class BookController extends Controller
 
     public function update_book(BookInsertRequest $request)
     {
-        $this->bookRepo->update_record($request);
-        return redirect('dashboard');
+        return $this->bookRepo->update_record($request);
     }
 
 

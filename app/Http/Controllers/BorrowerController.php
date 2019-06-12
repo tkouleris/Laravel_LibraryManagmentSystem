@@ -18,8 +18,7 @@ class BorrowerController extends Controller
 
     public function insert_new_borrower(BorrowerRequest $request)
     {
-        $this->borrowerRepo->create_record($request);
-        return redirect('dashboard');
+        return $this->borrowerRepo->create_record($request);
     }
 
 
@@ -31,8 +30,7 @@ class BorrowerController extends Controller
 
     public function update_borrower(BorrowerRequest $request)
     {
-        $this->borrowerRepo->update_record($request);
-        return redirect('dashboard');
+        return $this->borrowerRepo->update_record($request);
     }
 
     public function getBorrowers()
