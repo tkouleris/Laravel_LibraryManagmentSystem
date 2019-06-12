@@ -19,7 +19,9 @@ class BorrowingsController extends Controller
     {
         $borrowings = $this->borrowingsRepo->get_all_limit_by(5);
 
-        dd($borrowings);
+        //dd($borrowings);
+
+        return view('borrowings');
 
     }
 }
