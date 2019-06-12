@@ -59,4 +59,6 @@ Route::post('/newborrower',
 Route::get("/borrower/{id}", "BorrowerController@get_borrower");
 Route::post("/updateborrower", ['uses' => "BorrowerController@update_borrower", 'as'=>'updateborrower']);
 
+// Borrowings
+Route::get('/borrowings', 'BorrowingsController@getBorrowings')->name('borrowings');
 
