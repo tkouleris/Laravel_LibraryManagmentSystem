@@ -13,4 +13,9 @@ class Borrower extends Model
         'address',
         'phone',
     ];
+
+    public function borrowed()
+    {
+        return $this->belongsToMany('App\Book','borrowings');
+    }
 }

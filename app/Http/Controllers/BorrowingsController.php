@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Repositories\RepositoryInterfaces\BorrowingsRepoInterface;
+use App\Borrower;
+use App\Borrowing;
 
 class BorrowingsController extends Controller
 {
@@ -17,11 +19,8 @@ class BorrowingsController extends Controller
 
     public function getBorrowings(Request $request)
     {
-        $borrowings = $this->borrowingsRepo->get_all_limit_by(5);
-
-        //dd($borrowings);
-
-        return view('borrowings');
-
+        $borrowing_records = $this->borrowingsRepo->get_all_limit_by();
+        //dd($borrowing_records);
+        return view('borrowings',['borrowing_records'=>$borrowing_records]);
     }
 }

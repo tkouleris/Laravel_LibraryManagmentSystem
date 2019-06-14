@@ -10,4 +10,9 @@ class Book extends Model
     {
         return $this->belongsToMany('App\Author','book_author');
     }
+
+    public function beingBorrowed()
+    {
+        return $this->belongsToMany('App\Borrower','borrowing');
+    }
 }

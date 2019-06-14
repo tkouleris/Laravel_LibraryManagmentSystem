@@ -18,13 +18,19 @@
         public function get_all_limit_by($limit = 0)
         {
             if( $limit <= 0){
-                $borrowing = $this->model::all();
-                $borrowing->load('borrower');
-                $$borrowing->load('book');
+                $borrowing_records = $this->model->with('booksBorrowed')
+                                                    ->with('borrowerBorrowed')
+                                                    ->get();
+                $borrowing_records->load('booksBorrowed');
             }
 
-            if( $limit > 0 ) $borrowing = $this->model::all()->take($limit);
-            return $borrowing;
+            if( $limit > 0 )
+                $borrowing_records = $this->model->with('booksBorrowed')
+                                                  ->with('borrowerBorrowed')
+                                                  ->all()
+                                                  ->take($limit);
+
+            return $borrowing_records;
         }
 
 
