@@ -21,7 +21,6 @@
                 $borrowing_records = $this->model->with('booksBorrowed')
                                                     ->with('borrowerBorrowed')
                                                     ->get();
-                $borrowing_records->load('booksBorrowed');
             }
 
             if( $limit > 0 )
@@ -36,8 +35,8 @@
 
         public function get_record_by_id($id)
         {
-            $borrowin = $this->model::with('authors')->findOrFail($id);
-            return $$borrowin;
+            // $borrowin = $this->model::with('authors')->findOrFail($id);
+            // return $$borrowin;
         }
 
 

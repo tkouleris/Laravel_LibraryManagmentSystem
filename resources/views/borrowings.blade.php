@@ -11,11 +11,18 @@
     {{-- {{ $borrowing_record }} --}}
     {{-- {{ $borrowing_record->borrow_date }} --}}
     <td>{{ $borrowing_record->borrow_date }}</td>
-    <td>
+
     @foreach ($borrowing_record->booksBorrowed as $book)
-        {{ $book->title }}
+        <td>
+            {{ $book->title }}
+        </td>
+        <td>
+        @foreach ($book->authors as $author)
+            {{ $author->firstname }} {{ $author->lastname }}
+        @endforeach
+        </td>
     @endforeach
-    </td>
+
     <td>
     @foreach ($borrowing_record->borrowerBorrowed as $borrower)
         {{ $borrower->firstname }} {{ $borrower->lastname }}
