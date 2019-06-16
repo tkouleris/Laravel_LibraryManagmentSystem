@@ -3,6 +3,8 @@
     namespace App\Http\Repositories;
 
     use App\Borrowing;
+    use App\Book;
+    use App\Borrower;
     use App\Http\Repositories\RepositoryInterfaces\BorrowingsRepoInterface;
 
     class BorrowingsEloquentRepo implements BorrowingsRepoInterface{
@@ -42,21 +44,19 @@
 
         public function create_record($data)
         {
+            $book_id = $data['book_id'];
+            $borrower_id = $data['borrower_id'];
 
-            // $this->model->title = $data['title'];
-            // $this->model->isbn10 = $data['isbn10'];
-            // $this->model->isbn13 = $data['isbn13'];
-            // $this->model->year = $data['year'];
-            // $this->model->save();
+            $this->model->borrow_date = $data['borrow_date'];
+            $this->model->return_date = $data['return_date'];
+            $this->model->borrower_id = $borrower_id;
+            $this->model->book_id = $book_id;
+            $this->model->save();
 
-            // $author0 = $data['author0'];
-            // $author1 = $data['author1'];
-            // $author2 = $data['author2'];
+            $book_id = $data['book_id'];
+            $borrower_id = $data['borrower_id'];
 
-            // $author = Author::find([$author0, $author1, $author2]);
-            // $this->model->authors()->attach($author);
-
-            // return $this->model;
+            return $this->model;
         }
 
 

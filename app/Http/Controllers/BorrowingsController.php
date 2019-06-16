@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Repositories\RepositoryInterfaces\BorrowingsRepoInterface;
 use App\Http\Repositories\RepositoryInterfaces\BorrowerRepoInterface;
 use App\Http\Repositories\RepositoryInterfaces\BookRepoInterface;
+use App\Http\Requests\BorrowingRequest;
 
 
 class BorrowingsController extends Controller
@@ -34,5 +35,10 @@ class BorrowingsController extends Controller
             'Books'=>$booksList,
             'Borrowers'=>$borrowerList,
             ]);
+    }
+
+    public function insert_new_borrow_record(BorrowingRequest $request)
+    {
+        return $this->borrowingsRepo->create_record($request);
     }
 }
