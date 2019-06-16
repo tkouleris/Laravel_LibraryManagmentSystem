@@ -37,8 +37,8 @@
 
         public function get_record_by_id($id)
         {
-            // $borrowin = $this->model::with('authors')->findOrFail($id);
-            // return $$borrowin;
+            $borrow_record = $this->model::with('booksBorrowed')->with('borrowerBorrowed')->findOrFail($id);
+            return $borrow_record;
         }
 
 

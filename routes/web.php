@@ -66,3 +66,4 @@ Route::post('/newborrowing',
         'uses'=>'BorrowingsController@insert_new_borrow_record','as'=>'newborrowing'
     ]
 );
+Route::get("/borrowing/{id}", "BorrowingsController@getBorrowing_record");

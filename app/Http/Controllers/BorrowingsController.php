@@ -41,4 +41,9 @@ class BorrowingsController extends Controller
     {
         return $this->borrowingsRepo->create_record($request);
     }
+
+    public function getBorrowing_record($id)
+    {
+        return $this->borrowingsRepo->get_record_by_id($id);
+    }
 }
