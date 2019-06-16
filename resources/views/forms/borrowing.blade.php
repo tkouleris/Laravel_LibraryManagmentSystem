@@ -19,9 +19,9 @@
                 <label for="sel1">Borrower:</label>
                 <select class="form-control" id="author0">
                     <option id='0'>-</option>
-                    {{-- @foreach( $authors as $author )
-                        <option id='{{ $author->id }}'>{{ $author->lastname.' '.$author->firstname}}</option>
-                    @endforeach --}}
+                    @foreach( $Borrowers as $borrower )
+                        <option id='{{ $borrower->id }}'>{{ $borrower->lastname.' '.$borrower->firstname}}</option>
+                    @endforeach
                 </select>
             </div>
 
@@ -30,9 +30,9 @@
                 <label for="sel1">Book:</label>
                 <select class="form-control" id="author0">
                     <option id='0'>-</option>
-                    {{-- @foreach( $authors as $author )
-                        <option id='{{ $author->id }}'>{{ $author->lastname.' '.$author->firstname}}</option>
-                    @endforeach --}}
+                    @foreach( $Books as $book )
+                        <option id='{{ $book->id }}'> {{ $book->title }} </option>
+                    @endforeach
                 </select>
             </div>
 

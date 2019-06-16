@@ -4,23 +4,35 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Repositories\RepositoryInterfaces\BorrowingsRepoInterface;
-use App\Borrower;
-use App\Borrowing;
+use App\Http\Repositories\RepositoryInterfaces\BorrowerRepoInterface;
+use App\Http\Repositories\RepositoryInterfaces\BookRepoInterface;
+
 
 class BorrowingsController extends Controller
 {
     protected $borrowingsRepo;
+    protected $booksRepo;
+    protected $borrowerRepo;
 
-    public function __construct(BorrowingsRepoInterface $borrowings)
+    public function __construct(BorrowingsRepoInterface $borrowings, BorrowerRepoInterface $borrower, BookRepoInterface $books)
     {
         $this->borrowingsRepo = $borrowings;
+        $this->borrowerRepo = $borrower;
+        $this->booksRepo = $books;
     }
 
 
     public function getBorrowings(Request $request)
     {
         $borrowing_records = $this->borrowingsRepo->get_all_limit_by();
+        $booksList = $this->booksRepo->get_all_limit_by();
+        $borrowerList = $this->borrowerRepo->get_all_limit_by();
 
-        return view('borrowings',['borrowing_records'=>$borrowing_records]);
+
+        return view('borrowings',[
+            'borrowing_records'=>$borrowing_records,
+            'Books'=>$booksList,
+            'Borrowers'=>$borrowerList,
+            ]);
     }
 }

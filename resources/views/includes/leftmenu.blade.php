@@ -69,7 +69,10 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Actions:</h6>
             <a class="collapse-item" href="{{ url('/borrowings') }}" >Borrowings List</a>
-            <a class="collapse-item" data-toggle="modal" href="#borrowing_form">New Borrowing</a>
+            @if (\Request::is('borrowings'))
+              <a class="collapse-item" data-toggle="modal" href="#borrowing_form">New Borrowing</a>
+            @endif
+
             <!--
             <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
             <div class="collapse-divider"></div>
