@@ -7,17 +7,13 @@
     <div class="row" style="padding-top:10px;">
         <h2>Borrowings</h2>
 
-
-
         <table class="table">
             <thead>
                 <tr>
                     <th >Borrow Date</th>
+                    <th >Return Date</th>
                     <th >Borrower</th>
                     <th >Book Title</th>
-                    <th >Book Author No1</th>
-                    <th >Book Author No2</th>
-                    <th >Book Author No3</th>
                 </tr>
             </thead>
             <tbody>
@@ -25,6 +21,7 @@
                 @foreach ($borrowing_records as $borrowing_record)
                     <tr>
                         <td>{{ $borrowing_record->borrow_date }}</td>
+                        <td>{{ $borrowing_record->return_date }}</td>
 
                         <td>
                             @foreach ($borrowing_record->borrowerBorrowed as $borrower)
@@ -36,27 +33,6 @@
                             <td>
                                 {{ $book->title }}
                             </td>
-
-                            @foreach ($book->authors as $author)
-                            <td>
-                                {{ $author->firstname }} {{ $author->lastname }}
-                            </td>
-                            @endforeach
-
-                            @if(count($book->authors) == 0)
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            @endif
-
-                            @if(count($book->authors) == 1)
-                                <td></td>
-                                <td></td>
-                            @endif
-
-                            @if(count($book->authors) == 2)
-                                <td></td>
-                            @endif
                         @endforeach
                         <td>
                             <button type="button" name="btn_edit_borrowing" class="btn btn-success" id="{{ $borrowing_record->id }}">Edit</button>

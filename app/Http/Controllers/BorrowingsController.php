@@ -46,4 +46,10 @@ class BorrowingsController extends Controller
     {
         return $this->borrowingsRepo->get_record_by_id($id);
     }
+
+    public function update_borrowing(BorrowingRequest $request)
+    {
+        return $this->borrowingsRepo->update_record($request);
+    }
+
 }

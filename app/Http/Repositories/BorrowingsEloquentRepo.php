@@ -22,6 +22,7 @@
             if( $limit <= 0){
                 $borrowing_records = $this->model->with('booksBorrowed')
                                                     ->with('borrowerBorrowed')
+                                                    ->orderBy('borrow_date', 'DESC')
                                                     ->get();
             }
 
@@ -62,23 +63,16 @@
 
         public function update_record($data)
         {
-            // $bookid = $data->bookid;
-            // $book  = $this->model::findOrFail($bookid);
+            $borrowingid = $data->borrowingid;
+            $borrowing = $this->model::findOrFail($borrowingid);
 
-            // $book->title = $data['title'];
-            // $book->isbn10 = $data['isbn10'];
-            // $book->isbn13 = $data['isbn13'];
-            // $book->year = $data['year'];
-            // $book->save();
+            $borrowing->borrower_id = $data->borrower_id;
+            $borrowing->book_id = $data->book_id;
+            $borrowing->borrow_date = $data->borrow_date;
+            $borrowing->return_date = $data->return_date;
+            $borrowing->save();
 
-            // $author0 = $data['author0'];
-            // $author1 = $data['author1'];
-            // $author2 = $data['author2'];
-
-            // $author = Author::find([$author0, $author1, $author2]);
-            // $book->authors()->sync($author);
-
-            // return $book;
+            return $borrowing;
         }
 
 

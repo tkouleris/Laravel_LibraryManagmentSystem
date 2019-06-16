@@ -78,8 +78,8 @@ jQuery(document).ready(function(){
     var book_id = $("#book_id").find('option:selected').attr('id');
 
     var ajaxURI = "{{ route('newborrowing') }}"
-    // if( borrowerid > 0)
-    //   ajaxURI = "{{ route('updateborrower') }}";
+    if( borrowingid > 0)
+      ajaxURI = "{{ route('updateborrowing') }}";
 
     $.ajaxSetup({
       headers:
