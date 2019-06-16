@@ -61,5 +61,6 @@
     </div>
 </div>
 
+@include('forms.borrowing')
 @endsection
 
