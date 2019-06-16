@@ -20,7 +20,7 @@ class BorrowingsController extends Controller
     public function getBorrowings(Request $request)
     {
         $borrowing_records = $this->borrowingsRepo->get_all_limit_by();
-        //dd($borrowing_records);
+
         return view('borrowings',['borrowing_records'=>$borrowing_records]);
     }
 }
