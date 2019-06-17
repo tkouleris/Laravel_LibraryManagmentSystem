@@ -33,16 +33,17 @@
                         @endif
 
                         @if(count($book->authors) == 0)
-                            <td><td><td></td><td></td>
+                            <td></td><td></td><td></td>
                         @endif
 
                         @if(count($book->authors) == 1)
-                            <td><td><td></td>
+                            <td></td><td></td>
                         @endif
 
                         @if(count($book->authors) == 2)
-                            <td><td>
+                            <td></td>
                         @endif
+
                         <td>
                             <button type="button" name="btn_edit_book" class="btn btn-success" id="{{ $book->id }}">Edit</button>
                         </td>
