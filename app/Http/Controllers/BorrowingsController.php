@@ -52,4 +52,9 @@ class BorrowingsController extends Controller
         return $this->borrowingsRepo->update_record($request);
     }
 
+    public function deleteBorrowing_record($id)
+    {
+        return $this->borrowingsRepo->delete_record_byID($id);
+    }
+
 }

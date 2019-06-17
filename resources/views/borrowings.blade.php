@@ -57,6 +57,7 @@ $(document).ready(function() {
     $("button[name=btn_edit_borrowing]").click(function(){
         borrowingid = $(this).attr("id");
 
+
         jQuery.ajax({
             url: "/borrowing/"+borrowingid,
             method: 'get',
@@ -65,7 +66,6 @@ $(document).ready(function() {
             },
             success: function(result)
             {
-                console.log(result)
                 $('#borrowing_form').modal('show');
                 var borrowers = result.borrower_borrowed;
                 borrowers.forEach(function(borrower) {
@@ -89,7 +89,31 @@ $(document).ready(function() {
     });
 
     $("button[name=btn_del_borrowing]").click(function(){
+        borrowingid = $(this).attr("id");
 
+        $.ajaxSetup({
+            headers:
+            {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        jQuery.ajax({
+            url: "/borrowing/"+borrowingid,
+            method: 'delete',
+            data: {
+                id: borrowingid
+            },
+            success: function(result)
+            {
+                location.reload();
+            },
+            error: function (data)
+            {
+                // TODO: error message
+            }
+
+        });
     });
 });
 </script>
