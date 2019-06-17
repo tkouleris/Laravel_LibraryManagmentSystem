@@ -9,7 +9,6 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th >ID</th>
                     <th >Title</th>
                     <th >ISBN10</th>
                     <th >ISBN13</th>
@@ -23,7 +22,6 @@
 
                 @foreach($books as $book)
                     <tr>
-                        <td>{{ $book->id }}</td>
                         <td>{{ $book->title }}</td>
                         <td>{{ $book->isbn10 }}</td>
                         <td>{{ $book->isbn13 }}</td>

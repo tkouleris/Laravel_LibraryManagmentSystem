@@ -80,7 +80,7 @@
         public function delete_record_byID($id)
         {
             $book = $this->model::findOrFail($id);
-            Borrowing::where('book_id','=',$id)->delete();
+
             $book->authors()->detach();
             $book->delete();
 
