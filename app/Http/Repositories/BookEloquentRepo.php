@@ -4,6 +4,7 @@
 
     use App\Book;
     use App\Author;
+    use App\Borrowing;
     use App\Http\Repositories\RepositoryInterfaces\BookRepoInterface;
 
     class BookEloquentRepo implements BookRepoInterface{
@@ -78,6 +79,11 @@
 
         public function delete_record_byID($id)
         {
-            return $this->model::destroy($id);
+            $book = $this->model::findOrFail($id);
+            Borrowing::where('book_id','=',$id)->delete();
+            $book->authors()->detach();
+            $book->delete();
+
+            return $book;
         }
     }
