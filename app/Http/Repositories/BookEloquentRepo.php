@@ -76,5 +76,8 @@
             return $book;
         }
 
-
+        public function delete_record_byID($id)
+        {
+            return $this->model::destroy($id);
+        }
     }

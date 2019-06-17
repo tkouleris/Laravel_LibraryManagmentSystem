@@ -23,50 +23,50 @@ Auth::routes();
 
 
 // Dashboard
-Route::get('/dashboard', 'DashboardController@getDashboardData')->name('dashboard')->middleware('auth');;
+Route::get('/dashboard', 'DashboardController@getDashboardData')->name('dashboard')->middleware('auth');
 
 
 // Books
-Route::get('/books', 'BookController@getBooks')->name('books')->middleware('auth');;
+Route::get('/books', 'BookController@getBooks')->name('books')->middleware('auth');
 Route::post('/newbook',
     [
         'uses'=>'BookController@insert_new_book','as'=>'newbook'
     ]
-)->middleware('auth');;
-Route::get("/book/{book}", "BookController@get_book")->middleware('auth');;
-Route::post("/updatebook", ['uses' => "BookController@update_book", 'as'=>'updatebook'])->middleware('auth');;
-
+)->middleware('auth');
+Route::get("/book/{book}", "BookController@get_book")->middleware('auth');
+Route::post("/updatebook", ['uses' => "BookController@update_book", 'as'=>'updatebook'])->middleware('auth');
+Route::delete("/book/{id}", "BookController@deleteBook_record")->middleware('auth');
 
 // Author
-Route::get('/authors', 'AuthorController@getAuthors')->name('authors')->middleware('auth');;
+Route::get('/authors', 'AuthorController@getAuthors')->name('authors')->middleware('auth');
 Route::post('/newauthor',
     [
         'uses'=>'AuthorController@insert_new_author','as'=>'newauthor'
     ]
-)->middleware('auth');;
+)->middleware('auth');
 Route::get("/author/{id}", "AuthorController@get_author");
-Route::post("/updateauthor", ['uses' => "AuthorController@update_author", 'as'=>'updateauthor'])->middleware('auth');;
+Route::post("/updateauthor", ['uses' => "AuthorController@update_author", 'as'=>'updateauthor'])->middleware('auth');
 
 
 // Borrower
-Route::get('/borrowers', 'BorrowerController@getBorrowers')->name('borrowers')->middleware('auth');;
+Route::get('/borrowers', 'BorrowerController@getBorrowers')->name('borrowers')->middleware('auth');
 Route::post('/newborrower',
     [
         'uses'=>'BorrowerController@insert_new_borrower','as'=>'newborrower'
     ]
-)->middleware('auth');;
+)->middleware('auth');
 
-Route::get("/borrower/{id}", "BorrowerController@get_borrower")->middleware('auth');;
-Route::post("/updateborrower", ['uses' => "BorrowerController@update_borrower", 'as'=>'updateborrower'])->middleware('auth');;
+Route::get("/borrower/{id}", "BorrowerController@get_borrower")->middleware('auth');
+Route::post("/updateborrower", ['uses' => "BorrowerController@update_borrower", 'as'=>'updateborrower'])->middleware('auth');
 
 // Borrowings
-Route::get('/borrowings', 'BorrowingsController@getBorrowings')->name('borrowings')->middleware('auth');;
+Route::get('/borrowings', 'BorrowingsController@getBorrowings')->name('borrowings')->middleware('auth');
 Route::post('/newborrowing',
     [
         'uses'=>'BorrowingsController@insert_new_borrow_record','as'=>'newborrowing'
     ]
-)->middleware('auth');;
-Route::get("/borrowing/{id}", "BorrowingsController@getBorrowing_record")->middleware('auth');;
-Route::delete("/borrowing/{id}", "BorrowingsController@deleteBorrowing_record")->middleware('auth');;
-Route::post("/updateborrowing", ['uses' => "BorrowingsController@update_borrowing", 'as'=>'updateborrowing'])->middleware('auth');;
+)->middleware('auth');
+Route::get("/borrowing/{id}", "BorrowingsController@getBorrowing_record")->middleware('auth');
+Route::post("/updateborrowing", ['uses' => "BorrowingsController@update_borrowing", 'as'=>'updateborrowing'])->middleware('auth');
+Route::delete("/borrowing/{id}", "BorrowingsController@deleteBorrowing_record")->middleware('auth');
 

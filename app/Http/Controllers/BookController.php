@@ -6,15 +6,18 @@ use Illuminate\Http\Request;
 use App\Http\Requests\BookInsertRequest;
 
 use App\Http\Repositories\RepositoryInterfaces\BookRepoInterface;
+use App\Http\Repositories\RepositoryInterfaces\AuthorRepoInterface;
 
 class BookController extends Controller
 {
 
     protected $bookRepo;
+    protected $authorRepo;
 
-    public function __construct(BookRepoInterface $book)
+    public function __construct(BookRepoInterface $book, AuthorRepoInterface $author)
     {
         $this->bookRepo = $book;
+        $this->authorRepo = $author;
     }
 
 
@@ -38,7 +41,14 @@ class BookController extends Controller
 
     public function getBooks()
     {
-        $books = $this->bookRepo->get_all_limit_by(0);
-        return view('books',['books' => $books]);
+        $books = $this->bookRepo->get_all_limit_by();
+        $authors = $this->authorRepo->get_all_limit_by();
+
+        return view('books',['books' => $books, 'authors'=>$authors]);
+    }
+
+    public function deleteBook_record($id)
+    {
+        return $this->bookRepo->delete_record_byID($id);
     }
 }

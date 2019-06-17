@@ -39,7 +39,7 @@
         <div class="col-md-3">
             <div class="list-group" >
                 <h3>Authors</h3>
-                @foreach( $authors as $author )
+                @foreach( $authors->slice(0, 5) as $author )
                     <button type="button" name="author_row" data-authorid="{{ $author->id }}" class="list-group-item list-group-item-action">{{ $author->lastname.' '.$author->firstname }}</button>
                 @endforeach
                 <div class="btn-group" role="group" aria-label="Basic example" style="padding-top:5px;">

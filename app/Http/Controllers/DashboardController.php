@@ -26,7 +26,7 @@ class DashboardController extends Controller
     {
         $books = $this->bookRepo->get_all_limit_by(5);
         $borrowers = $this->borrowerRepo->get_all_limit_by(5);
-        $authors = $this->authorRepo->get_all_limit_by(5);
+        $authors = $this->authorRepo->get_all_limit_by();
 
         return view('dashboard',
             [
