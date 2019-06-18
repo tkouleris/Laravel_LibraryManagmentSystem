@@ -37,4 +37,9 @@ class AuthorController extends Controller
         $authors = $this->authorRepo->get_all_limit_by(0);
         return view('authors',['authors' => $authors]);
     }
+
+    public function deleteAuthor_record($id)
+    {
+        return $this->authorRepo->delete_record_byID($id);
+    }
 }

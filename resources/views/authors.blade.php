@@ -24,7 +24,13 @@
                         <td>{{ $author->lastname }}</td>
                         <td>{{ $author->firstname }}</td>
                         <td>{{ $author->dob }}</td>
-                        <td>{{ $author->bio }}</td>
+                        <td>{{ str_limit($author->bio,20) }}</td>
+                        <td>
+                            <button type="button" name="btn_edit_author" class="btn btn-success" id="{{ $author->id }}">Edit</button>
+                        </td>
+                        <td>
+                            <button type="button" name="btn_del_author" class="btn btn-danger" id=" {{ $author->id }} " >Delete</button>
+                        </td>
                     </tr>
                 @endforeach
 
@@ -33,4 +39,65 @@
     </div>
 </div>
 
+<script>
+$(document).ready(function() {
+    $("button[name=btn_edit_author]").click(function(){
+        authorid = $(this).attr("id");
+
+        jQuery.ajax({
+            url: "/author/"+authorid,
+            method: 'get',
+            data: {
+                id: authorid
+            },
+            success: function(result)
+            {
+                var authors = result.authors;
+
+                $('#author_form').modal('show');
+                $("input[name=firstname]").val(result.firstname)
+                $("input[name=lastname]").val(result.lastname)
+                $("input[name=dob]").val(result.dob)
+                $("textarea[name=bio]").text(result.bio)
+                $("input[name=form_authorid]").val(result.id)
+
+            },
+            error: function (data)
+            {
+                // TODO: error message
+            }
+        });
+    });
+
+    $("button[name=btn_del_author]").click(function(){
+        authorid = $(this).attr("id");
+
+        $.ajaxSetup({
+            headers:
+            {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        jQuery.ajax({
+            url: "/author/"+authorid,
+            method: 'delete',
+            data: {
+                id: authorid
+            },
+            success: function(result)
+            {
+                location.reload();
+            },
+            error: function (data)
+            {
+                // TODO: error message
+            }
+
+        });
+    });
+});
+</script>
+
+@include('forms.author')
 @endsection

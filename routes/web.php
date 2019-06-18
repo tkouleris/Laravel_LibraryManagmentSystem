@@ -46,6 +46,7 @@ Route::post('/newauthor',
 )->middleware('auth');
 Route::get("/author/{id}", "AuthorController@get_author");
 Route::post("/updateauthor", ['uses' => "AuthorController@update_author", 'as'=>'updateauthor'])->middleware('auth');
+Route::delete("/author/{id}", "AuthorController@deleteAuthor_record")->middleware('auth');
 
 
 // Borrower

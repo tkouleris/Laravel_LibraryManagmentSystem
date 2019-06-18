@@ -66,5 +66,14 @@
             return $author;
         }
 
+        public function delete_record_byID($id)
+        {
+            $author = $this->model::findOrFail($id);
+
+            $author->delete();
+
+            return $author;
+        }
+
 
     }
