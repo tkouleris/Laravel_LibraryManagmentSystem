@@ -38,4 +38,9 @@ class BorrowerController extends Controller
         $borrowers = $this->borrowerRepo->get_all_limit_by(0);
         return view('borrowers',['borrowers' => $borrowers]);
     }
+
+    public function deleteBorrower_record($id)
+    {
+        return $this->borrowerRepo->delete_record_byID($id);
+    }
 }

@@ -70,5 +70,13 @@
             return $borrower;
         }
 
+        public function delete_record_byID($id)
+        {
+            $borrower = $this->model::findOrFail($id);
+            $borrower->delete();
+
+            return $borrower;
+        }
+
 
     }

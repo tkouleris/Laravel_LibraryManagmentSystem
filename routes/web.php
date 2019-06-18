@@ -59,6 +59,8 @@ Route::post('/newborrower',
 
 Route::get("/borrower/{id}", "BorrowerController@get_borrower")->middleware('auth');
 Route::post("/updateborrower", ['uses' => "BorrowerController@update_borrower", 'as'=>'updateborrower'])->middleware('auth');
+Route::delete("/borrower/{id}", "BorrowerController@deleteBorrower_record")->middleware('auth');
+
 
 // Borrowings
 Route::get('/borrowings', 'BorrowingsController@getBorrowings')->name('borrowings')->middleware('auth');
