@@ -78,5 +78,11 @@
         </div>
       </li>
 
+      <li class="nav-item">
+          <a class="nav-link collapsed" href="{{ url('/register') }}" >
+          <i class="fas fa-user-edit"></i> Register User
+        </a>
+      </li>
+
     </ul>
     <!-- End of Sidebar -->
