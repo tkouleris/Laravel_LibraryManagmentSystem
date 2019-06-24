@@ -122,6 +122,7 @@ jQuery(document).ready(function(){
         title: jQuery('#title').val(),
         isbn10: jQuery('#isbn10').val(),
         isbn13: jQuery('#isbn13').val(),
+        year: jQuery('#year').val(),
         author0: author0,
         author1: author1,
         author2: author2
