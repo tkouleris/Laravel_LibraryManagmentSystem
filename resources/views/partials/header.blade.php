@@ -40,5 +40,6 @@
         </div>
     </div>
 </nav>
-
-@include('forms.password')
+@auth
+    @include('forms.password')
+@endauth
