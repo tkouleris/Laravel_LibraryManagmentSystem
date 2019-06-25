@@ -73,3 +73,8 @@ Route::get("/borrowing/{id}", "BorrowingsController@getBorrowing_record")->middl
 Route::post("/updateborrowing", ['uses' => "BorrowingsController@update_borrowing", 'as'=>'updateborrowing'])->middleware('auth');
 Route::delete("/borrowing/{id}", "BorrowingsController@deleteBorrowing_record")->middleware('auth');
 
+
+// User
+Route::post("/passwordchange", ['uses'=>"UserController@password_change", 'as'=>'passwordchange'])->middleware('auth');
+
+
