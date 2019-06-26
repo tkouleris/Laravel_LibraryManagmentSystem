@@ -11,28 +11,6 @@ class BooksTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('books')->insert([
-            'title' => 'Lord Of the Rings 1',
-            'isbn10' => '1234567890',
-            'isbn13' => 'abc1234567890',
-            'year' => 1994,
-            'edition' => 1,
-        ]);
-
-        DB::table('books')->insert([
-            'title' => 'Lord Of the Rings 2',
-            'isbn10' => '1234567890',
-            'isbn13' => 'abc1234567890',
-            'year' => 1994,
-            'edition' => 1,
-        ]);
-
-        DB::table('books')->insert([
-            'title' => 'Lord Of the Rings 3',
-            'isbn10' => '1234567890',
-            'isbn13' => 'abc1234567890',
-            'year' => 1994,
-            'edition' => 1,
-        ]);
+        $Books = factory(App\Book::Class, 10000)->create();
     }
 }

@@ -52,9 +52,15 @@
                         </td>
                     </tr>
                 @endforeach
+                <tr>
+                    <td colspan="7" style="text-align: center;">
+                        {{ $books->links() }}
+                    </td>
+                </tr>
 
             </tbody>
         </table>
+
     </div>
 </div>
 

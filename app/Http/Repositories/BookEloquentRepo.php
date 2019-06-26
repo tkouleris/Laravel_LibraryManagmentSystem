@@ -20,7 +20,7 @@
         public function get_all_limit_by($limit = 0)
         {
             if( $limit <= 0){
-                $books = $this->model::all();
+                $books = $this->model::paginate(10);
                 $books->load('authors');
             }
 
