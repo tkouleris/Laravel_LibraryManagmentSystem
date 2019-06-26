@@ -18,7 +18,7 @@
 
         public function get_all_limit_by($limit = 0)
         {
-            if( $limit <= 0 ) $borrowers = $this->model::all();
+            if( $limit <= 0 ) $borrowers = $this->model::paginate(10);
             if( $limit > 0 ) $borrowers = $this->model::all()->take($limit);
             return $borrowers;
         }

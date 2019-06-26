@@ -35,7 +35,11 @@
                         </td>
                     </tr>
                 @endforeach
-
+                <tr>
+                    <td colspan="6" style="text-align: center;">
+                        {{ $borrowers->links() }}
+                    </td>
+                </tr>
             </tbody>
         </table>
     </div>

@@ -12,28 +12,6 @@ class BorrowersTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('borrowers')->insert([
-            'firstname' => 'Thodoris',
-            'lastname' => 'Kouleris',
-            'dob' => Carbon::parse('1982-09-22'),
-            'address' => 'Kremou, 69-71, Kallithea',
-            'phone' => '2103256987',
-        ]);
-
-        DB::table('borrowers')->insert([
-            'firstname' => 'Antonia',
-            'lastname' => 'Elnamparaoui',
-            'dob' => Carbon::parse('1991-01-17'),
-            'address' => 'Kremou, 69-71, Kallithea',
-            'phone' => '2103256987',
-        ]);
-
-        DB::table('borrowers')->insert([
-            'firstname' => 'Nikola',
-            'lastname' => 'Tesla',
-            'dob' => Carbon::parse('1982-09-22'),
-            'address' => 'Unknown',
-            'phone' => '',
-        ]);
+        $Borrowers = factory(App\Borrower::Class, 10000)->create();
     }
 }
