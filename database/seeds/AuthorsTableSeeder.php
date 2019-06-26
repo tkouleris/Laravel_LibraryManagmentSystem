@@ -13,19 +13,7 @@ class AuthorsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('authors')->insert([
-            'firstname' => 'Thodoris',
-            'lastname' => 'Kouleris',
-            'dob' => Carbon::parse('1982-09-22'),
-            'bio' => 'this is a bio',
-        ]);
-
-        DB::table('authors')->insert([
-            'firstname' => 'Antonia',
-            'lastname' => 'Elnamparaoui',
-            'dob' => Carbon::parse('1992-01-18'),
-            'bio' => 'this is a bios',
-        ]);
+        $Authors = factory(App\Author::Class, 10000)->create();
 
     }
 }
