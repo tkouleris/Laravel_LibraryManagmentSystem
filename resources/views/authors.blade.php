@@ -33,7 +33,11 @@
                         </td>
                     </tr>
                 @endforeach
-
+                <tr>
+                    <td colspan="5" style="text-align: center;">
+                        {{ $authors->links() }}
+                    </td>
+                </tr>
             </tbody>
         </table>
     </div>
