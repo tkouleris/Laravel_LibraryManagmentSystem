@@ -42,7 +42,7 @@ class BookController extends Controller
     public function getBooks()
     {
         $books = $this->bookRepo->get_all_limit_by();
-        $authors = $this->authorRepo->get_all_limit_by();
+        $authors = $this->authorRepo->get_all_limit_by(10000);
 
         return view('books',['books' => $books, 'authors'=>$authors]);
     }

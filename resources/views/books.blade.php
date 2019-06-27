@@ -86,6 +86,7 @@ $(document).ready(function() {
                 $("input[name=year]").val(result.year)
                 $("input[name=form_bookid]").val(result.id)
                 var i = 0;
+
                 authors.forEach(function(author) {
                     $('select#author'+i+' option[id='+author.id+']')[0].setAttribute('selected','selected');
                     i++;

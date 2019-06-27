@@ -48,7 +48,7 @@
             </div>
 
             <div class="form-group mb-3">
-                <label for="sel1">Author No1:</label>
+                <label for="author0">Author No1:</label>
                 <select class="form-control" id="author0">
                     <option id='0'>-</option>
                     @foreach( $authors as $author )
@@ -58,7 +58,7 @@
             </div>
 
             <div class="form-group mb-3">
-                <label for="sel1">Author No2:</label>
+                <label for="author1">Author No2:</label>
                 <select class="form-control" id="author1">
                     <option id='0'>-</option>
                     @foreach( $authors as $author )
@@ -68,7 +68,7 @@
             </div>
 
             <div class="form-group mb-3">
-                <label for="sel1">Author No3:</label>
+                <label for="author2">Author No3:</label>
                 <select class="form-control" id="author2">
                     <option id='0'>-</option>
                     @foreach( $authors as $author )
