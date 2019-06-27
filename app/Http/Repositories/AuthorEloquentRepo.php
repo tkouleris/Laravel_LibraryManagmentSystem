@@ -75,5 +75,9 @@
             return $author;
         }
 
+        public function get_total_records()
+        {
+            return count($this->model::all());
+        }
 
     }
