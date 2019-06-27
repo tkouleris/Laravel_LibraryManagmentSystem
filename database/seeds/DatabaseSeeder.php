@@ -15,5 +15,7 @@ class DatabaseSeeder extends Seeder
         $this->call(BooksTableSeeder::class);
         $this->call(BorrowersTableSeeder::class);
         $this->call(AuthorsTableSeeder::class);
+        $this->call(BookAuthorTableSeeder::class);
+
     }
 }
