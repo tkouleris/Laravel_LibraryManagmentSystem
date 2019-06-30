@@ -40,10 +40,13 @@
                         <td>
                             <button type="button" name="btn_del_borrowing" class="btn btn-danger" id=" {{ $borrowing_record->id }} " >Delete</button>
                         </td>
-
                     </tr>
                 @endforeach
-
+                <tr>
+                    <td colspan="4" style="text-align: center;">
+                        {{ $borrowing_records->links() }}
+                    </td>
+                </tr>
             </tbody>
         </table>
 

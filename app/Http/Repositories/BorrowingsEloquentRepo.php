@@ -23,7 +23,7 @@
                 $borrowing_records = $this->model->with('booksBorrowed')
                                                     ->with('borrowerBorrowed')
                                                     ->orderBy('borrow_date', 'DESC')
-                                                    ->get();
+                                                    ->paginate(10);
             }
 
             if( $limit > 0 )
