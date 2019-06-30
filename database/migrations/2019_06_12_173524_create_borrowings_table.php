@@ -19,8 +19,8 @@ class CreateBorrowingsTable extends Migration
             $table->foreign('borrower_id')->references('id')->on('borrowers');
             $table->bigInteger('book_id')->unsigned();
             $table->foreign('book_id')->references('id')->on('books');
-            $table->date('borrow_date')->nullable();
-            $table->date('return_date');
+            $table->date('borrow_date');
+            $table->date('return_date')->nullable();
             $table->timestamps();
         });
     }
