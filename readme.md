@@ -22,6 +22,14 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 
 The project was developed with the porpose to learn Laravel 5.8
 
+### Installation
+1. Run `git clone https://github.com/darkheart101/Laravel_LibraryManagmentSystem.git`
+2. Run `composer install` (install composer beforehand)
+3. From the projects root run `cp .env.example .env`
+4. Configure your `.env` file
+5. Run `php artisan key:generate`
+6. Run `php artisan migrate`
+
 ## License
 
 The Laravel framework is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
