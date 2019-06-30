@@ -30,6 +30,15 @@ The project was developed with the porpose to learn Laravel 5.8
 5. Run `php artisan key:generate`
 6. Run `php artisan migrate`
 
+### Seed - Only User
+1. Run `php artisan db:seed`
+
+### Seed - Everything
+1. Run `vi database/seeds/DatabaseSeeder.php`
+2. Uncomment lines in run method
+3. Run `php artisan db:seed`
+
+
 ## License
 
 The Laravel framework is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
