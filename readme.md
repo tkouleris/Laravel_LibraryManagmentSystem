@@ -38,6 +38,11 @@ The project was developed with the porpose to learn Laravel 5.8
 2. Uncomment lines in run method
 3. Run `php artisan db:seed`
 
+### Seeded Credentials
+-------------
+* User: admin
+* Pass: admin
+
 
 ## License
 
