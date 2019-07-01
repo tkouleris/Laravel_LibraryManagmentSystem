@@ -44,6 +44,11 @@ The project was developed with the porpose to learn Laravel 5.8
 * Pass: admin
 
 
+## To do
+* Easier way to select book author
+* Search fields for books, authors and borrowers lists
+* Book picture
+
 ## License
 
 The Laravel framework is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
