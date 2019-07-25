@@ -20,7 +20,7 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 
 ## Learning Laravel
 
-The project was developed with the porpose to learn Laravel 5.8
+The project was developed with the purpose to learn Laravel 5.8
 
 ### Installation
 1. Run `git clone https://github.com/darkheart101/Laravel_LibraryManagmentSystem.git`
