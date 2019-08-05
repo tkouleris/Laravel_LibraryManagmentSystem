@@ -29,6 +29,9 @@ class RouteTest extends TestCase
         $response = $this->get('/');
         $response->assertStatus(302);
 
+        $response = $this->get('/login');
+        $response->assertStatus(302);
+
         $response = $this->get('/dashboard');
         $response->assertStatus(200);
 
@@ -56,6 +59,47 @@ class RouteTest extends TestCase
         $response = $this->get('/borrowing/1');
         $response->assertStatus(200);
 
+        $response = $this->get('/register');
+        $response->assertStatus(200);
+    }
 
+    public function test_all_routes_unauthorized()
+    {
+
+        $response = $this->get('/');
+        $response->assertStatus(200);
+
+        $response = $this->get('/login');
+        $response->assertStatus(200);
+
+        $response = $this->get('/dashboard');
+        $response->assertStatus(302);
+
+        $response = $this->get('/books');
+        $response->assertStatus(302);
+
+        $response = $this->get('/book/1');
+        $response->assertStatus(302);
+
+        $response = $this->get('/authors');
+        $response->assertStatus(302);
+
+        $response = $this->get('/author/1');
+        $response->assertStatus(302);
+
+        $response = $this->get('/borrowers');
+        $response->assertStatus(302);
+
+        $response = $this->get('/borrower/1');
+        $response->assertStatus(302);
+
+        $response = $this->get('/borrowings');
+        $response->assertStatus(302);
+
+        $response = $this->get('/borrowing/1');
+        $response->assertStatus(302);
+
+        $response = $this->get('/register');
+        $response->assertStatus(302);
     }
 }

@@ -44,7 +44,7 @@ Route::post('/newauthor',
         'uses'=>'AuthorController@insert_new_author','as'=>'newauthor'
     ]
 )->middleware('auth');
-Route::get("/author/{id}", "AuthorController@get_author");
+Route::get("/author/{id}", "AuthorController@get_author")->middleware('auth');
 Route::post("/updateauthor", ['uses' => "AuthorController@update_author", 'as'=>'updateauthor'])->middleware('auth');
 Route::delete("/author/{id}", "AuthorController@deleteAuthor_record")->middleware('auth');
 
