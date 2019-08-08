@@ -48,4 +48,19 @@ class LoginTest extends TestCase
         $response->assertStatus(302);
         $response->assertRedirect('/');
     }
+
+    public function test_user_logout()
+    {
+        $response = $this->post('/login', [
+            'name' => 'no_user',
+            'password' => 'wrong_password',
+        ]);
+        $response->assertStatus(302);
+        $response->assertRedirect('/');
+
+        $response = $this->post('/logout');
+
+        $response->assertStatus(302);
+        $response->assertRedirect('/');
+    }
 }
