@@ -28,11 +28,7 @@ Route::get('/dashboard', 'DashboardController@getDashboardData')->name('dashboar
 
 // Books
 Route::get('/books', 'BookController@getBooks')->name('books')->middleware('auth');
-Route::post('/newbook',
-    [
-        'uses'=>'BookController@insert_new_book','as'=>'newbook'
-    ]
-)->middleware('auth');
+Route::post('/newbook',['uses'=>'BookController@insert_new_book','as'=>'newbook'])->middleware('auth');
 Route::get("/book/{book}", "BookController@get_book")->middleware('auth');
 Route::post("/updatebook", ['uses' => "BookController@update_book", 'as'=>'updatebook'])->middleware('auth');
 Route::delete("/book/{id}", "BookController@deleteBook_record")->middleware('auth');
