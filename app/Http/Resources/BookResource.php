@@ -50,4 +50,13 @@ class BookResource extends JsonResource
             'Author_3' => $author_3,
         ];
     }
+
+    public function with( $request )
+    {
+        return [
+            'Api Version' => '1.0',
+            'author'=> 'Thodoris Kouleris',
+            'emai' => 'tkouleris@gmail.com'
+        ];
+    }
 }
