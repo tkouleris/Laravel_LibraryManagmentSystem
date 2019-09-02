@@ -59,7 +59,7 @@ class BookController extends Controller
      */
     public function show($id)
     {
-        //
+        return $this->bookRepo->get_record_by_id($id);
     }
 
     /**
