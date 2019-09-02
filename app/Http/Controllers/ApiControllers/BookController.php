@@ -4,8 +4,7 @@ namespace App\Http\Controllers\ApiControllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
-
+use App\Http\Resources\BookResource;
 use App\Http\Repositories\RepositoryInterfaces\BookRepoInterface;
 use App\Http\Repositories\RepositoryInterfaces\AuthorRepoInterface;
 
@@ -27,7 +26,7 @@ class BookController extends Controller
     public function index()
     {
         $books = $this->bookRepo->get_all_limit_by();
-        return $books;
+        return BookResource::collection( $books );
     }
 
     /**
