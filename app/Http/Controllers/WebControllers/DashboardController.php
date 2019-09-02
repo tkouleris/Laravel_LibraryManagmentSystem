@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\WebControllers;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Repositories\RepositoryInterfaces\AuthorRepoInterface;
 use App\Http\Repositories\RepositoryInterfaces\BorrowerRepoInterface;
