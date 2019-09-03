@@ -56,7 +56,8 @@ class AuthorController extends Controller
      */
     public function show($id)
     {
-        //
+        $author = $this->authorRepo->get_record_by_id($id);
+        return new AuthorResource( $author );
     }
 
     /**
