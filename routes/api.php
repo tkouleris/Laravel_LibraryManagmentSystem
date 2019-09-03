@@ -24,3 +24,7 @@ Route::get('book/{id}', 'ApiControllers\BookController@show');
 // Authros
 Route::get('authors', 'ApiControllers\AuthorController@index');
 Route::get('author/{id}', 'ApiControllers\AuthorController@show');
+
+Route::fallback(function(){
+    return response()->json(['message' => 'Resource Not Found!'], 404);
+});
