@@ -17,5 +17,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+// Books
 Route::get('books', 'ApiControllers\BookController@index');
 Route::get('book/{id}', 'ApiControllers\BookController@show');
+
+// Authros
+Route::get('authors', 'ApiControllers\AuthorController@index');
