@@ -57,7 +57,9 @@ class BorrowerController extends Controller
      */
     public function show($id)
     {
-        //
+        $borrower = $this->borrowerRepo->get_record_by_id($id);
+        return new BorrowerResource( $borrower );
+
     }
 
     /**

@@ -25,13 +25,16 @@ Route::get('book/{id}', 'ApiControllers\BookController@show');
 Route::get('authors', 'ApiControllers\AuthorController@index');
 Route::get('author/{id}', 'ApiControllers\AuthorController@show');
 
+// Borrowers
+Route::get('borrowers', 'ApiControllers\BorrowerController@index');
+Route::get('borrower/{id}', 'ApiControllers\BorrowerController@show');
 
 
 // only authenticated routes
-Route::middleware('auth.basic')->group(function(){
-    Route::get('borrowers', 'ApiControllers\BorrowerController@index');
+// Route::middleware('auth.basic')->group(function(){
 
-});
+
+// });
 
 
 
