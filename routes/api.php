@@ -29,6 +29,8 @@ Route::get('author/{id}', 'ApiControllers\AuthorController@show');
 Route::get('borrowers', 'ApiControllers\BorrowerController@index');
 Route::get('borrower/{id}', 'ApiControllers\BorrowerController@show');
 
+// Borrowings
+Route::get('borrowings', 'ApiControllers\BorrowingsController@index');
 
 // only authenticated routes
 // Route::middleware('auth.basic')->group(function(){
