@@ -5,6 +5,7 @@ namespace App\Http\Controllers\ApiControllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Resources\BorrowerResource;
+use App\Http\Requests\BorrowerRequest;
 use App\Http\Repositories\RepositoryInterfaces\BorrowerRepoInterface;
 
 class BorrowerController extends Controller
@@ -33,9 +34,9 @@ class BorrowerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        return $this->borrowerRepo->create_record($request);
     }
 
     /**
