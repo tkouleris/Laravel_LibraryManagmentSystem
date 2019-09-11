@@ -36,7 +36,9 @@ class BorrowerController extends Controller
      */
     public function create(BorrowerRequest $request)
     {
-        return $this->borrowerRepo->create_record($request);
+        $borrower = $this->borrowerRepo->create_record($request);
+
+        return response()->json($borrower, 201);
     }
 
     /**
