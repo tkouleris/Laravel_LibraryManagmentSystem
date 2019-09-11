@@ -34,7 +34,7 @@ class BorrowerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create(BorrowerRequest $request)
     {
         return $this->borrowerRepo->create_record($request);
     }
