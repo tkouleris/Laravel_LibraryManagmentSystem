@@ -29,6 +29,7 @@ Route::get('author/{id}', 'ApiControllers\AuthorController@show');
 Route::get('borrowers', 'ApiControllers\BorrowerController@index');
 Route::get('borrower/{id}', 'ApiControllers\BorrowerController@show');
 Route::post('borrower', 'ApiControllers\BorrowerController@create');
+Route::put('borrower/{id}', 'ApiControllers\BorrowerController@update');
 
 
 // Borrowings
