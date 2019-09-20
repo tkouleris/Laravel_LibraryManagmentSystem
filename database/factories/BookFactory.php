@@ -1,6 +1,6 @@
 <?php
 
-use App\Book;
+use App\Models\Book;
 use Illuminate\Support\Str;
 use Faker\Generator as Faker;
 

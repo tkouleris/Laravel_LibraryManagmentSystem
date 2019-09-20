@@ -8,11 +8,11 @@ class Book extends Model
 {
     public function authors()
     {
-        return $this->belongsToMany('App\Author','book_author');
+        return $this->belongsToMany('App\Models\Author','book_author');
     }
 
     public function beingBorrowed()
     {
-        return $this->belongsToMany('App\Borrower','borrowing');
+        return $this->belongsToMany('App\Models\Borrower','borrowing');
     }
 }

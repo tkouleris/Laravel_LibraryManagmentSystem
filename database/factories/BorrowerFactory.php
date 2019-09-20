@@ -1,6 +1,6 @@
 <?php
 
-use App\Borrower;
+use App\Models\Borrower;
 use Illuminate\Support\Str;
 use Faker\Generator as Faker;
 

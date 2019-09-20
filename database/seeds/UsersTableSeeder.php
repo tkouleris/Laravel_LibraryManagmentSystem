@@ -15,7 +15,6 @@ class UsersTableSeeder extends Seeder
             'name' => 'admin',
             'email' => 'admin@bookborrower.com',
             'password' => bcrypt('admin'),
-            'api_token' => Str::random(60)
         ]);
     }
 }

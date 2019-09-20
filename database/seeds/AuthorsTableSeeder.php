@@ -13,7 +13,7 @@ class AuthorsTableSeeder extends Seeder
      */
     public function run()
     {
-        $Authors = factory(App\Author::Class, 10000)->create();
+        $Authors = factory(App\Models\Author::Class, 10000)->create();
 
     }
 }

@@ -12,6 +12,6 @@ class BorrowersTableSeeder extends Seeder
      */
     public function run()
     {
-        $Borrowers = factory(App\Borrower::Class, 10000)->create();
+        $Borrowers = factory(App\Models\Borrower::Class, 10000)->create();
     }
 }
