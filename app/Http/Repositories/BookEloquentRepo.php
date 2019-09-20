@@ -2,9 +2,9 @@
 
     namespace App\Http\Repositories;
 
-    use App\Book;
-    use App\Author;
-    use App\Borrowing;
+    use App\Models\Book;
+    use App\Models\Author;
+    use App\Models\Borrowing;
     use App\Http\Repositories\RepositoryInterfaces\BookRepoInterface;
 
     class BookEloquentRepo implements BookRepoInterface{

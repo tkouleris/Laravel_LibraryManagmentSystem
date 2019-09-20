@@ -2,8 +2,8 @@
 
 namespace App\Observers;
 
-use App\Book;
-use App\Borrowing;
+use App\Models\Book;
+use App\Models\Borrowing;
 
 class BookObserver
 {

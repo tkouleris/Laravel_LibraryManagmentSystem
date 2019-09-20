@@ -2,8 +2,8 @@
 
 namespace App\Observers;
 
-use App\Borrower;
-use App\Borrowing;
+use App\Models\Borrower;
+use App\Models\Borrowing;
 
 class BorrowerObserver
 {

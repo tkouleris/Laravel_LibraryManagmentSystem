@@ -5,8 +5,8 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use App\Observers\BookObserver;
 use App\Observers\BorrowerObserver;
-use App\Book;
-use App\Borrower;
+use App\Models\Book;
+use App\Models\Borrower;
 
 class EloquentEventServiceProvider extends ServiceProvider
 {

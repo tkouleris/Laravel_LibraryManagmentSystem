@@ -2,7 +2,7 @@
 
     namespace App\Http\Repositories;
 
-    use App\Borrower;
+    use App\Models\Borrower;
     use App\Http\Repositories\RepositoryInterfaces\BorrowerRepoInterface;
 
     class BorrowerEloquentRepo implements BorrowerRepoInterface{

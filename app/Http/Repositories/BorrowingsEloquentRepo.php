@@ -2,9 +2,9 @@
 
     namespace App\Http\Repositories;
 
-    use App\Borrowing;
-    use App\Book;
-    use App\Borrower;
+    use App\Models\Borrowing;
+    use App\Models\Book;
+    use App\Models\Borrower;
     use App\Http\Repositories\RepositoryInterfaces\BorrowingsRepoInterface;
 
     class BorrowingsEloquentRepo implements BorrowingsRepoInterface{

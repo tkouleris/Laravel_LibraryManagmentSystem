@@ -2,7 +2,7 @@
 
     namespace App\Http\Repositories;
 
-    use App\Author;
+    use App\Models\Author;
     use App\Http\Repositories\RepositoryInterfaces\AuthorRepoInterface;
 
     class AuthorEloquentRepo implements AuthorRepoInterface{
