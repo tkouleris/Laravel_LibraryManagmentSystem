@@ -85,6 +85,8 @@ $(document).ready(function() {
             },
             error: function (data)
             {
+                console.log(data);
+                alert(data);
                 // TODO: error message
             }
 
