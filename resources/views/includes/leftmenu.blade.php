@@ -70,9 +70,9 @@
             <h6 class="collapse-header">Actions:</h6>
             <a class="collapse-item" href="{{ url('/borrowings') }}" >Borrowings List</a>
 
-{{--            @if (\Request::is('borrowings'))--}}
+            @if (\Request::is('borrowings'))
               <a class="collapse-item" data-toggle="modal" href="#borrowing_form">New Borrowing</a>
-{{--            @endif--}}
+            @endif
 
           </div>
         </div>

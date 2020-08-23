@@ -130,5 +130,4 @@ $(document).ready(function() {
 </script>
 
 @include('forms.book')
-@include('forms.borrowing')
 @endsection
